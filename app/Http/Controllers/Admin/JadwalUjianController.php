@@ -24,6 +24,8 @@ use App\Jadwal_ujian;
 use App\Jadwal_ujian_detail;
 use App\Jadwal_ujian_detail_kelas;
 
+use App\Imports\ExcelImport;
+
 class JadwalUjianController extends Controller
 {
     private $data_jadwal_ujian_detail;
@@ -128,65 +130,9 @@ class JadwalUjianController extends Controller
             }
         } else {
             if ($request->hasFile('file_excel')) {
-                $this->id_jadwal_ujian = $jadwal_ujian->id_jadwal_ujian;
-                $this->data_import = [];
-                $this->list_matkul = Matkul::pluck('id_matkul', 'kode_matkul');
-                $list_ruang = Ruang::pluck('id_ruang', 'kode_ruang');
-                $this->list_kelas = Kelas::select('id_kelas', DB::raw("CONCAT(id_prodi, kode_kelas) AS prodi_kode"))
-                    ->where('tahun_akademik', $tahun_akademik->tahun_akademik)
-                    ->pluck('id_kelas', 'prodi_kode');
-    
-                foreach ($list_ruang as $key => $val) {
-                    if (is_numeric($key)) $key = intval($key);
-                    $this->list_ruang[$key] = $val;
-                }
-    
-                $this->id_jadwal_ujian_detail = Jadwal_ujian_detail::orderBy('id_jadwal_ujian_detail', 'DESC')->first();
-    
-                if (empty($this->id_jadwal_ujian_detail)) {
-                    $this->id_jadwal_ujian_detail = 1;
-                } else {
-                    $this->id_jadwal_ujian_detail = $this->id_jadwal_ujian_detail->id_jadwal_ujian_detail + 1;
-                }
-    
-    
-                Excel::selectSheetsByIndex(-1)->load($request->file('file_excel'), function($reader)
-                {
-                    $results = $reader->noHeading()->toArray();
-    
-                    foreach ($results as $row)
-                    {
-                        if (! empty($row[0])) {
-                            if (!empty($row[0]) && empty($row[1])) {
-                                $this->tanggal_ujian = $row[0];
-                            } else {
-                                $jam = str_replace('WIB', '', $row[0]);
-    
-                                foreach (explode('/', $row[5]) as $kelas) {
-                                    $this->data_jadwal_ujian_detail_kelas[] = [
-                                        'id_jadwal_ujian_detail' => $this->id_jadwal_ujian_detail,
-                                        'id_kelas' => $this->list_kelas[trim($kelas)]
-                                    ];
-                                }
-    
-                                $this->data_jadwal_ujian_detail[] = [
-                                    'id_jadwal_ujian_detail' => $this->id_jadwal_ujian_detail++,
-                                    'id_jadwal_ujian' => $this->id_jadwal_ujian,
-                                    'tanggal' => date('Y-m-d', strtotime($this->tanggal_ujian)),
-                                    'jam_mulai' => str_replace('.', ':', trim(explode('-', $jam)[0])),
-                                    'jam_selesai' => str_replace('.', ':', trim(explode('-', $jam)[1])),
-                                    'id_ruang' => $this->list_ruang[$row[1]],
-                                    'id_matkul' => $this->list_matkul[$row[2]]
-                                ];
-                            }
-                        }
-                    }
-    
-                }, 'UTF-8');
-
-                Jadwal_ujian_detail::insert($this->data_jadwal_ujian_detail);
-                Jadwal_ujian_detail_kelas::insert($this->data_jadwal_ujian_detail_kelas);
+                Excel::import(new ExcelImport($jadwal_ujian->id_jadwal_ujian, $tahun_akademik->tahun_akademik), $request->file('file_excel')); //IMPORT FILE 
             }
+
         }
 
         Session::flash('flash_message', 'Jadwal Ujian berhasil disimpan.');
