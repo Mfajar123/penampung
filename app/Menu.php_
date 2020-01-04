@@ -1,0 +1,23 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Menu extends Model
+{
+    protected $table = 'menu';
+
+    protected $primaryKey = 'id_menu';
+
+    public $timestamps = false;
+    
+    protected $fillable = [
+        'id_parent_1', 'id_parent_2', 'tipe', 'nama', 'icon', 'route', 'posisi'
+    ];
+
+    public function role()
+    {
+        return $this->hasMany('App\Role', 'id_menu');
+    }
+}

@@ -1,0 +1,134 @@
+@extends('template')
+
+
+
+@section('main')
+
+<!-- Content Header (Page header) -->
+
+    <section class="content-header">
+
+      <h1>
+
+        Kategori Informasi
+
+      </h1>
+
+      <ol class="breadcrumb">
+
+        <li>Home</li>
+
+        <li>Kategori Informasi</li>
+
+        <li class="active">Trash Kategori Informasi</li>
+
+      </ol>
+
+    </section>
+
+
+
+    <!-- Main content -->
+
+    <section class="content">
+
+      <div class="row">
+
+      	<div class="col-xs-12">
+
+          @include('_partials.flash_message')
+
+      		<div class="box box-default">
+
+      			<div class="box-header with-border">
+
+      				<h3 class="box-title"><a href="{{ route('admin.kategori_info') }}" class="text-primary">Data Kategori Informasi</a>| Trash
+
+              </h3>
+
+      			</div>
+
+
+
+      			<div class="box-body">
+
+      				<div class="row">
+
+                <div class="col-xs-12 table-responsive">
+
+                    <table class="table table-striped kategori_info">
+
+                      <thead>
+
+                        <tr>
+
+                          <th>No</th>
+
+                          <th>Id Kategori Informasi</th>
+
+                          <th>Kategori Informasi</th>
+
+                          <th>Aksi</th>
+
+                        </tr>
+
+                      </thead>
+
+
+
+                      <tbody>
+
+
+
+                      </tbody>
+
+                    </table>
+
+                </div>
+
+              </div>
+
+      			</div>
+
+      		</div>
+
+      	</div>
+
+      </div>
+
+    </section>
+
+    <!-- /.content -->
+
+    <script type="text/javascript">
+
+      $(document).ready(function(){
+
+        $(".kategori_info").DataTable({
+
+            processing: true,
+
+            serverSide: true,
+
+            ajax: "{{ route('admin.kategori_info.trash.datatable') }}",
+
+            columns: [
+
+                {'data': 'no'},
+
+                {'data': 'id_kategori_info'},
+
+                {'data': 'kategori_info'},
+
+                {'data': 'aksi'},
+
+            ]
+
+        });
+
+      });
+
+    </script>
+
+@stop
+

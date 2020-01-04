@@ -1,0 +1,28 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Role extends Model
+{
+    protected $table = 'role';
+
+    protected $primaryKey = 'id_role';
+
+    public $timestamps = false;
+
+    protected $fillable = [
+        'id_admin', 'id_menu', 'akses', 'tambah', 'ubah', 'hapus', 'batasan'
+    ];
+
+    public function admin()
+    {
+        return $this->belongsTo('App\Admin', 'id_admin');
+    }
+
+    public function menu()
+    {
+        return $this->belongsTo('App\Menu', 'id_menu');
+    }
+}

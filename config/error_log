@@ -1,0 +1,4 @@
+[10-Apr-2018 08:16:46 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/yayasanp/public_html/penampung/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/yayasanp/public_html/penampung/config/app.php on line 16
