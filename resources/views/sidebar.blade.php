@@ -6,11 +6,12 @@
       <div class="user-panel">
 
         <div class="pull-left image">
+        <div class="user-panel-left mt-3 pb-3 mb-3 d-flex"> 
         @if(Request::segment(1) == 'mahasiswa')
             @if(Auth::guard('mahasiswa')->user()->foto_profil == '')
-              <img src="{{ asset('images/default-avatar.png') }}" class="img-circle img-responsive">
+              <img src="{{ asset('images/default-avatar.png') }}" class="img-circle">
             @else
-                <img src="{{ asset('images/mahasiswa/'.Auth::guard('mahasiswa')->user()->foto_profil) }}" class="img-circle img-responsive" style="height: 45px;">
+                <img src="{{ asset('images/mahasiswa/'.Auth::guard('mahasiswa')->user()->foto_profil) }}" class="img-circle" style="height: 45px;">
             @endif
         @elseif(Request::segment(1) == 'dosen')
             @if(Auth::guard('dosen')->user()->foto_profil == '')
@@ -43,7 +44,7 @@
                 <img src="{{ asset('images/admin_smp/'.Auth::guard('admin_smp')->user()->foto_profil) }}" class="img-circle img-responsive" style="height: 45px;">
             @endif
           @endif
-        </div>
+        </div></div>
         <div class="pull-left info">
           
           @if(Request::segment(1) == 'mahasiswa')

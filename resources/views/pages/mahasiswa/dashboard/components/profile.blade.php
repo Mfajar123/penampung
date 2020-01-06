@@ -4,8 +4,8 @@
         </div><p>
         <table class="table">
             <tbody>   
-                <tr><div class="container" align="left">
-                    <img src="{{ asset('images/mahasiswa/'.Auth::guard('mahasiswa')->user()->foto_profil) }}" class="user-image" style="max-height: 300px;" >
+                <tr><div class="container">
+                    <img src="{{ asset('images/mahasiswa/'.Auth::guard('mahasiswa')->user()->foto_profil) }}" class="user-image" style="max-height: 175px;" >
                 </div></tr>
 
                 <br>
