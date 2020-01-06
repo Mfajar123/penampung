@@ -1,16 +1,15 @@
 <div class="box box-primary">
         <div class="box-header with-border">
-            <h5 class="box-title">Profile Ku</h5>
-        </div>
+            <h5 class="box-title"><strong>Profile Ku</strong></h5>
+        </div><p>
         <table class="table">
             <tbody>   
-                <tr>
-                <td><div class="img">
-                    <img src="{{ asset('images/mahasiswa/'.Auth::guard('mahasiswa')->user()->foto_profil) }}" class="user-image">
-            </div></td>
-                {{-- <td><img src="{{asset('../img/')}}"></td> --}}
-                <td></td>    
-                </tr> 
+                <tr><div class="container" align="left">
+                    <img src="{{ asset('images/mahasiswa/'.Auth::guard('mahasiswa')->user()->foto_profil) }}" class="user-image" style="max-height: 300px;" >
+                </div></tr>
+
+                <br>
+
                 <tr>
                     <td width="20"><b>Nim</b></td>
                     <td>:</td>
@@ -53,18 +52,13 @@
                     <td>{{ Auth::guard('mahasiswa')->user()->tmp_lahir}},{{ Auth::guard('mahasiswa')->user()->tgl_lahir}}</td>
                 </tr>
 
-                
-                {{-- @foreach ($list_jadwal as $jadwal)
-                    <tr>
-                        <td>{{ $jadwal->jam_mulai }} - {{ $jadwal->jam_selesai }}</td>
-                        <td>{{ $jadwal->kode_matkul }} - {{ $jadwal->nama_matkul }}</td>
-                        <td>{{ $jadwal->kode_ruang }} - {{ $jadwal->nama_ruang }}</td>
-                    </tr>
-                @endforeach --}}
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
             </tbody>
-
-            <tr>
-                <td></td>
-            </tr>
         </table>
+        
+            
     </div>
