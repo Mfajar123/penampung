@@ -951,6 +951,7 @@ Route::group(['middleware' => 'web'], function(){
 			Route::group(['prefix' => 'skpi'], function () {
 				Route::get('/', 'Mahasiswa\SkpiController@index')->name('mahasiswa.skpi');
 				Route::post('/save', 'Mahasiswa\SkpiController@save')->name('mahasiswa.skpi.simpan');
+				
 			});
 		});
 	});

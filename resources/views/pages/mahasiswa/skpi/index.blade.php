@@ -20,21 +20,21 @@
             <div class="<div class="input-group mb-3>  
             <div class="col-md-4">
                             <div class="form-group">
-                                <input type="file" name="sertifikat1" placeholder="Choose image" id="image1">
+                                <input type="file" name="sertifikat_ospek" placeholder="Choose image" id="image1">
                                 <span class="text-danger">{{ $errors->first('title') }}</span>
                             </div>
                         </div>
 
             <div class="col-md-4">
                     <div class="form-group">
-                            <input type="file" name="sertifikat2" placeholder="Choose image" id="image2">
+                            <input type="file" name="sertifikat_seminar" placeholder="Choose image" id="image2">
                             <span class="text-danger">{{ $errors->first('title') }}</span>
                     </div>
             </div>
 
             <div class="col-md-4">
                     <div class="form-group">
-                            <input type="file" name="sertifikat3" placeholder="Choose image" id="image3">
+                            <input type="file" name="sertifikat_bnsp" placeholder="Choose image" id="image3">
                             <span class="text-danger">{{ $errors->first('title') }}</span>
                     </div>
             </div>
@@ -91,8 +91,58 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>     
-
     </form>
+
+
+    <!-- fect data dari data sertifikat yang terinput-->
+    @foreach($data_skpi as $s)
+    <div class="col-md-4">
+            <div class="box box-primary">
+            <div class="box-primary with-border">
+            <h4 class="box-title" align="center"><strong>Sertifikat Ospek</strong></h4>
+            </div>
+        <table class="table">
+            <tbody>   
+                <tr align="center">
+                <td><img src="{{$s->sertifikat_ospek}}" style="max-height: 175px;"></td>
+                </tr>   
+            </tbody>
+        </table>     
+        </div></div>
+
+<div class="col-md-4">
+            <div class="box box-primary">
+            <div class="box-primary with-border">
+            <h4 class="box-title" align="center"><strong> Sertifikat Seminar/Pelatihan</strong></h4>
+            </div>
+        <table class="table">
+            <tbody>   
+                <tr align="center">
+                <td><img src="{{$s->sertifikat_seminar}}" style="max-height: 175px;"></td>
+                </tr>   
+            </tbody>
+        </table>     
+        </div></div>
+
+<div class="col-md-4">
+        <div class="box box-primary">
+        <div class="box-primary with-border">
+        <h4 class="box-title" align="center"><strong> Sertifikat BNSP</strong></h4>
+        </div>
+    <table class="table">
+        <tbody>   
+            <tr align="center">
+            <td><img src="{{$s->sertifikat_bnsp}}" style="max-height: 175px;"></td>
+            </tr>   
+        </tbody>
+    </table>     
+    </div></div>
+    @endforeach
+
+    <!-- stop-->
+
+
+
 </section>
 
 <script type="text/javascript">
