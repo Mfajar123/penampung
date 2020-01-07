@@ -22,7 +22,7 @@
             @if(Auth::guard('admin')->user()->foto_profil == '')
               <img src="{{ asset('images/default-avatar.png') }}" class="img-circle">
             @else
-                <img src="{{ asset('images/admin/'.Auth::guard('admin')->user()->foto_profil) }}" class="img-circle" style="height: 40px; width: 40px;">
+                <img src="{{ asset('images/admin/'.Auth::guard('admin')->user()->foto_profil) }}" class="img-circle" style="max-height: 40px; max-width: 40px;">
             @endif
         @elseif(Request::segment(1) == 'wali')
             @if(Auth::guard('wali')->user()->foto_profil == '')
@@ -197,7 +197,7 @@
         <li><a href="{{ route('mahasiswa.krs') }}"><i class="fa fa-id-card"></i> <span>KRS</span></a></li>
         <li><a href="{{ route('mahasiswa.jadwal') }}"><i class="fa fa-calendar"></i> <span>Jadwal</span></a></li>
         <li><a href="{{ route('mahasiswa.cetak_jadwal_ujian') }}"><i class="fa fa-calendar"></i> <span>Jadwal Ujian</span></a></li>
-        <li><a href="{{ route('mahasiswa.khs') }}"><i class="fa fa-file-text-o"></i> <span>Kartu Hasil Studi</span></a></li>
+        <li><a href="{{ route('mahasiswa.khs') }}"><i class="fa fa-file-text-o"></i> <span>KHS</span></a></li>
         <li><a href="{{ route('mahasiswa.remedial') }}"><i class="fa fa-refresh"></i> <span>Ulang Mata Kuliah</span></a></li>
         <li><a href="{{ route('mahasiswa.skpi')}}"><i class="fa fa-file"></i><span>Upload SKPI</span></a></li>
         <li><a href="{{ route('mahasiswa.shared_material') }}"><i class="fa fa-file-o"></i> <span>File Materi</span></a></li>
@@ -247,7 +247,7 @@
 	@elseif(Request::segment(1) == 'wali')
         	<li class="header">Akademik</li>
         	<li><a href="{{ route('wali.jadwal') }}"><i class="fa fa-calendar"></i> <span>Jadwal</span></a></li>
-        	<li><a href="{{ route('wali.khs') }}"><i class="fa fa-file-text-o"></i> <span>Kartu Hasil Studi</span></a></li>
+        	<li><a href="{{ route('wali.khs') }}"><i class="fa fa-file-text-o"></i> <span>KHS</span></a></li>
         	<li><a href="#"><i class="fa fa-refresh"></i> <span>Remedial</span></a></li>
        @elseif(Request::segment(1) == 'admin_smk')
         <li class="header">DASHBOARD</li>

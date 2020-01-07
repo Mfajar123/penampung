@@ -4,9 +4,10 @@
         </div><p>
         <table class="table">
             <tbody>   
-                <tr><div class="container">
+                <tr><div class="col-md-4">
+                    <div class="image" align="center">
                     <img src="{{ asset('images/mahasiswa/'.Auth::guard('mahasiswa')->user()->foto_profil) }}" class="user-image" style="max-height: 175px;" >
-                </div></tr>
+                </div></div></tr>
 
                 <br>
 
@@ -55,7 +56,7 @@
                 <tr>
                     <td></td>
                     <td></td>
-                    <td></td>
+                    <td><a href="{{ route('mahasiswa.profil') }}" class="btn btn-primary btn-flat">Setting Profile</a></td>
                 </tr>
             </tbody>
         </table>

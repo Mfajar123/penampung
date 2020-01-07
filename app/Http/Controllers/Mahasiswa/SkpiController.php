@@ -13,9 +13,6 @@ class SkpiController extends Controller
 {
     public function index(){
     return view ('pages/mahasiswa/skpi/index');
-    
-    $data_skpi= \App\skpi::all();
-    return view ('pages/mahasiswa/skpi/index',['data_skpi'=>$data_skpi]);
     }
 
     public function save(Request $request){

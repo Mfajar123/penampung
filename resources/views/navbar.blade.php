@@ -36,6 +36,19 @@
 
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
+          <li class="pull-left">
+              @if(Request::segment(1) == 'mahasiswa')
+                <a href="{{ route('mahasiswa.pengumuman') }}" title="Pengumuman"><i class="fa fa-bell"></i></a>
+              @elseif(Request::segment(1) == 'dosen')
+                <a href="{{ route('dosen.pengumuman') }}" title="Pengumuman"><i class="fa fa-bell"></i></a>
+              @elseif(Request::segment(1) == 'admin')
+                <a href="{{ route('admin.pengumuman') }}" title="Pengumuman"><i class="fa fa-bell"></i></a>
+              @elseif(Request::segment(1) == 'admin_smk')
+                <a href="{{ route('admin_smk.pengumuman') }}" title="Pengumuman"><i class="fa fa-bell"></i></a>
+              @elseif(Request::segment(1) == 'admin_smp')
+                <a href="{{ route('admin_smp.pengumuman') }}" title="Pengumuman"><i class="fa fa-bell"></i></a>
+              @endif
+            </li>
         <!-- User Account: style can be found in dropdown.less -->
         <li class="pull-left">
           @if(Request::segment(1) == 'mahasiswa')

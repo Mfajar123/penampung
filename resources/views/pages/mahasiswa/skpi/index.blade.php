@@ -93,56 +93,6 @@
         </div>     
     </form>
 
-
-    <!-- fect data dari data sertifikat yang terinput-->
-    @foreach($data_skpi as $s)
-    <div class="col-md-4">
-            <div class="box box-primary">
-            <div class="box-primary with-border">
-            <h4 class="box-title" align="center"><strong>Sertifikat Ospek</strong></h4>
-            </div>
-        <table class="table">
-            <tbody>   
-                <tr align="center">
-                <td><img src="{{$s->sertifikat_ospek}}" style="max-height: 175px;"></td>
-                </tr>   
-            </tbody>
-        </table>     
-        </div></div>
-
-<div class="col-md-4">
-            <div class="box box-primary">
-            <div class="box-primary with-border">
-            <h4 class="box-title" align="center"><strong> Sertifikat Seminar/Pelatihan</strong></h4>
-            </div>
-        <table class="table">
-            <tbody>   
-                <tr align="center">
-                <td><img src="{{$s->sertifikat_seminar}}" style="max-height: 175px;"></td>
-                </tr>   
-            </tbody>
-        </table>     
-        </div></div>
-
-<div class="col-md-4">
-        <div class="box box-primary">
-        <div class="box-primary with-border">
-        <h4 class="box-title" align="center"><strong> Sertifikat BNSP</strong></h4>
-        </div>
-    <table class="table">
-        <tbody>   
-            <tr align="center">
-            <td><img src="{{$s->sertifikat_bnsp}}" style="max-height: 175px;"></td>
-            </tr>   
-        </tbody>
-    </table>     
-    </div></div>
-    @endforeach
-
-    <!-- stop-->
-
-
-
 </section>
 
 <script type="text/javascript">
