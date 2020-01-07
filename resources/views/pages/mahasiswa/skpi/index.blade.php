@@ -16,25 +16,25 @@
 
 	<section class="content">
             <form method="POST" enctype="multipart/form-data" id="upload_image_form" action="{{ route('mahasiswa.skpi.simpan') }}" >
-                {{ csrf_field() }}
-            <div class="<div class="input-group mb-3>
+                {{ csrf_field() }}   
+            <div class="<div class="input-group mb-3>  
             <div class="col-md-4">
                             <div class="form-group">
-                                <input type="file" name="image" placeholder="Choose image" id="image1">
+                                <input type="file" name="sertifikat1" placeholder="Choose image" id="image1">
                                 <span class="text-danger">{{ $errors->first('title') }}</span>
                             </div>
                         </div>
 
             <div class="col-md-4">
                     <div class="form-group">
-                            <input type="file" name="image" placeholder="Choose image" id="image2">
+                            <input type="file" name="sertifikat2" placeholder="Choose image" id="image2">
                             <span class="text-danger">{{ $errors->first('title') }}</span>
                     </div>
             </div>
 
             <div class="col-md-4">
                     <div class="form-group">
-                            <input type="file" name="image" placeholder="Choose image" id="image3">
+                            <input type="file" name="sertifikat3" placeholder="Choose image" id="image3">
                             <span class="text-danger">{{ $errors->first('title') }}</span>
                     </div>
             </div>

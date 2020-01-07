@@ -14,8 +14,8 @@ class SkpiController extends Controller
     return view('pages/mahasiswa/skpi/index');
     }
 
-    public function save(){
-        return 'form terinput';
+    public function save(Request $request){
+        \App\skpi::create($request->all());
     }
 }
 ?>

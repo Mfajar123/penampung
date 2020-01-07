@@ -6,49 +6,48 @@
       <div class="user-panel">
 
         <div class="pull-left image">
-        <div class="user-panel-left mt-3 pb-3 mb-3 d-flex"> 
         @if(Request::segment(1) == 'mahasiswa')
             @if(Auth::guard('mahasiswa')->user()->foto_profil == '')
-              <img src="{{ asset('images/default-avatar.png') }}" class="img-circle">
+              <img src="{{ asset('images/default-avatar.png') }}" class="img-circle img-responsive">
             @else
-                <img src="{{ asset('images/mahasiswa/'.Auth::guard('mahasiswa')->user()->foto_profil) }}" class="img-circle" style="max-height: 40px;">
+                <img src="{{ asset('images/mahasiswa/'.Auth::guard('mahasiswa')->user()->foto_profil) }}" class="img-circle img-responsive" style="height: 45px;">
             @endif
         @elseif(Request::segment(1) == 'dosen')
             @if(Auth::guard('dosen')->user()->foto_profil == '')
-              <img src="{{ asset('images/default-avatar.png') }}" class="img-circle">
+              <img src="{{ asset('images/default-avatar.png') }}" class="img-circle img-responsive">
             @else
-                <img src="{{ asset('images/dosen/'.Auth::guard('dosen')->user()->foto_profil) }}" class="img-circle" style="max-height: 40px; max-width: 40px;">
+                <img src="{{ asset('images/dosen/'.Auth::guard('dosen')->user()->foto_profil) }}" class="img-circle img-responsive" style="height: 45px;">
             @endif
         @elseif(Request::segment(1) == 'admin')
             @if(Auth::guard('admin')->user()->foto_profil == '')
-              <img src="{{ asset('images/default-avatar.png') }}" class="img-circle">
+              <img src="{{ asset('images/default-avatar.png') }}" class="img-circle img-responsive">
             @else
-                <img src="{{ asset('images/admin/'.Auth::guard('admin')->user()->foto_profil) }}" class="img-circle" style="max-height: 40px; max-width: 40px;">
+                <img src="{{ asset('images/admin/'.Auth::guard('admin')->user()->foto_profil) }}" class="img-circle img-responsive" style="height: 45px;">
             @endif
         @elseif(Request::segment(1) == 'wali')
             @if(Auth::guard('wali')->user()->foto_profil == '')
-              <img src="{{ asset('images/default-avatar.png') }}" class="img-circle">
+              <img src="{{ asset('images/default-avatar.png') }}" class="img-circle img-responsive">
             @else
-                <img src="{{ asset('images/mahasiswa/'.Auth::guard('mahasiswa')->user()->foto_profil) }}" class="img-circle" style="max-height: 40px; max-width: 40px;">
+                <img src="{{ asset('images/mahasiswa/'.Auth::guard('mahasiswa')->user()->foto_profil) }}" class="img-circle img-responsive" style="height: 45px;">
             @endif
         @elseif(Request::segment(1) == 'admin_smk')
             @if(Auth::guard('admin_smk')->user()->foto_profil == '')
-              <img src="{{ asset('images/default-avatar.png') }}" class="img-circle">
+              <img src="{{ asset('images/default-avatar.png') }}" class="img-circle img-responsive">
             @else
-                <img src="{{ asset('images/admin_smk/'.Auth::guard('admin_smk')->user()->foto_profil) }}" class="img-circle" style="max-height: 40px; max-width: 40px;">
+                <img src="{{ asset('images/admin_smk/'.Auth::guard('admin_smk')->user()->foto_profil) }}" class="img-circle img-responsive" style="height: 45px;">
             @endif
         @elseif(Request::segment(1) == 'admin_smp')
             @if(Auth::guard('admin_smp')->user()->foto_profil == '')
-              <img src="{{ asset('images/default-avatar.png') }}" class="img-circle">
+              <img src="{{ asset('images/default-avatar.png') }}" class="img-circle img-responsive">
             @else
-                <img src="{{ asset('images/admin_smp/'.Auth::guard('admin_smp')->user()->foto_profil) }}" class="img-circle" style="max-height: 40px; max-width: 40px;">
+                <img src="{{ asset('images/admin_smp/'.Auth::guard('admin_smp')->user()->foto_profil) }}" class="img-circle img-responsive" style="height: 45px;">
             @endif
           @endif
-        </div></div>
+        </div>
         <div class="pull-left info">
           
           @if(Request::segment(1) == 'mahasiswa')
-            {{ Auth::guard('mahasiswa')->user()->nama }}
+            <p>{{ Auth::guard('mahasiswa')->user()->nama }}</p>
             <p>NIM : {{ Auth::guard('mahasiswa')->user()->nim }}</p>
           @elseif(Request::segment(1) == 'dosen')
             <p>{{ Auth::guard('dosen')->user()->nama }}</p>
