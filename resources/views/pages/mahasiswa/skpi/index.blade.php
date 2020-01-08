@@ -17,6 +17,7 @@
 	<section class="content">
             <form method="POST" enctype="multipart/form-data" id="upload_image_form" action="{{ route('mahasiswa.skpi.simpan') }}" >
                 {{ csrf_field() }}   
+            <br><p>
             <div class="<div class="input-group mb-3>  
             <div class="col-md-4">
                             <div class="form-group">
@@ -89,11 +90,13 @@
                    
             <div class="col-md-12">
                 <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </div>     
+            </div>    
     </form>
 
-</section>
+    
+    <!-- data skpi-->
+</div>
+    
 
 <script type="text/javascript">
   $(document).ready(function (b) {
