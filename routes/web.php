@@ -1042,6 +1042,12 @@ Route::group(['middleware' => 'web'], function(){
 				});
 			});
 
+			Route::group(['prefix' => 'skpi'], function () {
+				Route::get('/', 'Dosen\SkpiController@index')->name('dosen.skpi.index');
+				Route::get('/skpi/cari', 'Dosen\SkpiController@cari')->name('dosen.skpi.cari');
+				
+			});
+
 			Route::group(['prefix' => 'saran_kritik'], function () {
 				Route::group(['prefix' => 'materi_proses_pembelajaran'], function () {
 					Route::get('/', 'Dosen\SaranKritikController@materi_proses_pembelajaran')->name('dosen.evaluasi.saran_kritik.materi_proses_pembelajaran');

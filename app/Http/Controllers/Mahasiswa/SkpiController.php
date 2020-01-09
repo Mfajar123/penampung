@@ -22,9 +22,9 @@ class SkpiController extends Controller
         $mahasiswa = Auth::guard('mahasiswa')->user();
 
         $this->validate($request, [
-			'sertifikat_ospek' => 'required|file|image|mimes:jpeg,png,jpg|max:1024',
-            'sertifikat_seminar' => 'required|file|image|mimes:jpeg,png,jpg|max:1024',
-            'sertifikat_bnsp' => 'required|file|image|mimes:jpeg,png,jpg|max:1024',
+			'sertifikat_ospek' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+            'sertifikat_seminar' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+            'sertifikat_bnsp' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
             ]);
  
 		// menyimpan data file yang diupload ke variabel $file
@@ -32,9 +32,9 @@ class SkpiController extends Controller
         $file2 = $request->file('sertifikat_seminar');
         $file3 = $request->file('sertifikat_bnsp');
 
-        $nama_ospek = $mahasiswa->nim."_ospek";
-        $nama_seminar = $mahasiswa->nim."_seminar";
-        $nama_bnsp = $mahasiswa->nim."_bnsp";
+        $nama_ospek = time()."_".$file1->getClientOriginalName();
+        $nama_seminar = time()."_".$file2->getClientOriginalName();
+        $nama_bnsp = time()."_".$file3->getClientOriginalName();
  
       	// isi dengan nama folder tempat kemana file diupload
 		$tujuan_upload = 'images/skpi';
@@ -49,7 +49,12 @@ class SkpiController extends Controller
             'sertifikat_bnsp' => $nama_bnsp,
         ]);
 
-	    return redirect()->back()->with(['success' => 'Data Berhasil Disimpan']);;
+	    return redirect()->back();
+    }
+    public function show(){
+        $data_skpi=skpi::all();
+
+        
     }
 }
 ?>

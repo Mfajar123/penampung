@@ -230,6 +230,7 @@
                 <li class="{{ (Request::segment(2) == 'nilai' && Request::segment(3) != 'persentase') ? 'active' : '' }}"><a href="{{ route('dosen.nilai.index') }}"><i class="fa fa-edit"></i> <span>Nilai Mahasiswa</span></a></li>
             </ul>
             <li><a href="{{ route('dosen.kuesioner.nilai.index') }}"><i class="fa fa-pie-chart"></i> <span>Nilai Kuesioner</span></a></li>
+            <li><a href="{{ route('dosen.skpi.index') }}"><i class="fa fa-file"></i> <span>Konfirm SKPI</span></a></li>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-comments-o"></i> <span>Saran dan Kritik</span>
