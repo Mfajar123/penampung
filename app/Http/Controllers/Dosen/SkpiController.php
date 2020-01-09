@@ -12,23 +12,23 @@ use App\Http\Controllers\OptionsController;
 
 class SkpiController extends Controller
 {
-    public function index(Request $request){
-        $data_skpi=skpi::all();
-        return view ('pages.dosen.skpi.index',['data_skpi'=>$data_skpi]);
-
-        return view('pages.dosen.skpi.index');
-    }
-
-    public function cari(Request $request){
-        
-        $cari = $request->cari;
+    public function index()
+	{
+		$data_skpi = DB::table('skpi')->paginate(5);
  
-        $cari_skpi = skpi::
-        where('nim','like',"%".$cari."%")
-        ->where('nama','like',"%".$cari."%")->get();
-
+    	return view ('pages.dosen.skpi.index',['data_skpi'=>$data_skpi]);
  
-		return view('dosen.skpi.index', compact('cari_skpi'));
-    }
+	}
+ 
+	public function cari(Request $request)
+	{
+		$cari = $request->cari;
+ 
+    	$data_skpi = DB::table('skpi')
+        ->where('nama','like',"%".$cari."%")
+		->paginate();
+ 
+    	return view ('pages.dosen.skpi.index',['data_skpi'=>$data_skpi]);
+	}
 }
 ?>

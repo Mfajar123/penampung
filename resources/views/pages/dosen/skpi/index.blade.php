@@ -2,133 +2,87 @@
 
 @section('main')
 	<section class="content-header">
-        <h1><b>Approve SKPI<b></h1>
-        <div class="col-md-4"></div>
-        <div class="col-md-4"></div>
-        <div class="col-md-4" align="right">
-                <form class="form-inline" action="{{route('dosen.skpi.cari')}}" method="GET">
-                    <input type="text" class="form-control" id="search">
-                <button type="submit" class="btn btn-primary mb-2">Cari</button>
-                </form>
-        </div>
+		<h1>Setujui SKPI</h1>
     </section>
-    <br><p>
-	<section class="content">
-        <!--konten gambar-->
-        
-        @foreach ( $data_skpi as $data )
-        <div class="col-md-4">    
-            <div class="box box-default">
 
-            <div class="box-header with-border">
-
-                <h3 class="box-title" style="color: black;">
-                    <i class="fa fa-file" style="color: #FFD700;"></i>
-                    Sertifikat Ospek
-                </h3>
-              </div>
-
-
-              <div class="box-body">
-        @if($data->sertifikat_ospek != '')  
-              <div class="col-md-12">
-                <?php $view =  substr($data->sertifikat_ospek ,-4); ?>
-                    @if( $view == '.pdf' )
-                      <a href="{{ asset('images/skpi/'.$data->sertifikat_ospek) }}" target="_blank" style="font-size:20px;"><i class="fa fa-file-pdf-o"></i>File Pdf</a>
-                    @elseif($view == '.doc')
-                      <a href="{{ asset('images/skpi/'.$data->sertifikat_ospek) }}" target="_blank"><i class="fa fa-file-doc-o"></i>File Doc</a>
-                    @elseif($view == '.docx')
-                      <a href="{{ asset('images/skpi/'.$data->sertifikat_ospek) }}" target="_blank"><i class="fa fa-file-doc-o"></i>File Docx</a>
-                    @else
-                    <a target="_blank" href="{{ asset('images/skpi/'.$data->sertifikat_ospek) }}"><img src="{{ asset('images/skpi/'.$data->sertifikat_ospek) }}" alt="Foto Pendukung" class="img-responsive">
-                    </a>
-                    @endif
-              </div>
-         @endif
-
-                </ol>
-
-              </div>
-
-            </div></div>
-
-            <!--sertifikat seminar-->
-            <div class="col-md-4">    
+    <section class="contain">
+<div class="col-md-12">
+            <p>Cari Data Skpi :</p>
                     <div class="box box-default">
+                            <div class="box-header with-border">
+                                <h4 class="box-title">Form Jadwal</h4>
+                            </div><br>
+            <div class="container">                
+            <form action="{{route('dosen.skpi.cari')}}" method="GET">
+                <input type="text" name="cari" placeholder="Cari Skpi .." value="{{ old('cari') }}">
+                <input type="submit" value="CARI">
+            </form>
+            <br>
+            <table border="1">
+                <tr>
+                    <th>Nim</th>
+                    <th>Nama</th>
+                    <th>Sertifikat Ospek</th>
+                    <th>Sertifikat Seminar</th>
+                    <th>Sertifikat BNSP</th>
+                    <th>AKSI</th>
+                </tr>
+                @foreach($data_skpi as $data)
+                <tr>
+                    <td>{{ $data->nim }}</td>
+                    <td>{{ $data->nama }}</td>
+                    {{-- 1 --}}
+                    <td>
+                    @if($data->sertifikat_ospek != '')  
+                              <?php $view =  substr($data->sertifikat_ospek,-4); ?>
+                                  @if( $view == '.pdf' )
+                                    <a href="{{ asset('images/skpi/'.$data->sertifikat_ospek) }}" target="_blank" style="font-size:20px;"><i class="fa fa-file-pdf-o"></i>File Pdf</a>
+                                  @elseif($view == '.doc')
+                                    <a href="{{ asset('images/skpi/'.$data->sertifikat_ospek) }}" target="_blank"><i class="fa fa-file-doc-o"></i>File Doc</a>
+                                  @elseif($view == '.docx')
+                                    <a href="{{ asset('images/skpi/'.$data->sertifikat_ospek) }}" target="_blank"><i class="fa fa-file-doc-o"></i>File Docx</a>
+                                  @else
+                                  <a target="_blank" href="{{ asset('images/skpi/'.$data->sertifikat_ospek) }}"><img width="100px" src="{{ asset('images/skpi/'.$data->sertifikat_ospek) }}" alt="Foto Pendukung" class="img-responsive">
+                                  </a>
+                                  @endif
+                       @endif</td>
+                    {{-- 2 --}}
+                    <td>
+                            @if($data->sertifikat_seminar != '')  
+                            <?php $view =  substr($data->sertifikat_seminar ,-4); ?>
+                                @if( $view == '.pdf' )
+                                  <a href="{{ asset('images/skpi/'.$data->sertifikat_seminar) }}" target="_blank" style="font-size:20px;"><i class="fa fa-file-pdf-o"></i>File Pdf</a>
+                                @elseif($view == '.doc')
+                                  <a href="{{ asset('images/skpi/'.$data->sertifikat_seminar) }}" target="_blank"><i class="fa fa-file-doc-o"></i>File Doc</a>
+                                @elseif($view == '.docx')
+                                  <a href="{{ asset('images/skpi/'.$data->sertifikat_seminar) }}" target="_blank"><i class="fa fa-file-doc-o"></i>File Docx</a>
+                                @else
+                                <a target="_blank" href="{{ asset('images/skpi/'.$data->sertifikat_seminar) }}"><img width="100px" src="{{ asset('images/skpi/'.$data->sertifikat_seminar) }}" alt="Foto Pendukung" class="img-responsive">
+                                </a>
+                                @endif
+                     @endif</td>
+                    {{-- 3 --}}
+                    <td>
+                            @if($data->sertifikat_bnsp != '')  
+                              <?php $view =  substr($data->sertifikat_bnsp ,-4); ?>
+                                  @if( $view == '.pdf' )
+                                    <a href="{{ asset('images/skpi/'.$data->sertifikat_bnsp) }}" target="_blank" style="font-size:20px;"><i class="fa fa-file-pdf-o"></i>File Pdf</a>
+                                  @elseif($view == '.doc')
+                                    <a href="{{ asset('images/skpi/'.$data->sertifikat_bnsp) }}" target="_blank"><i class="fa fa-file-doc-o"></i>File Doc</a>
+                                  @elseif($view == '.docx')
+                                    <a href="{{ asset('images/skpi/'.$data->sertifikat_bnsp) }}" target="_blank"><i class="fa fa-file-doc-o"></i>File Docx</a>
+                                  @else
+                                  <a target="_blank" href="{{ asset('images/skpi/'.$data->sertifikat_bnsp) }}"><img width="100px" src="{{ asset('images/skpi/'.$data->sertifikat_bnsp) }}" alt="Foto Pendukung" class="img-responsive">
+                                  </a>
+                                  @endif
+                       @endif</td>
+                       <td><a class="btn btn-info" href="#">...</a><a class="btn btn-danger"  href="#">...</a></td>
+                    </td>
+                </tr>
+                @endforeach</div>
+            </table><p>
+        </div></div>
         
-                    <div class="box-header with-border">
-        
-                        <h3 class="box-title" style="color: black;">
-                            <i class="fa fa-file" style="color: #FFD700;"></i>
-                            Sertifikat Seminar
-                        </h3>
-                      </div>
-        
-        
-                      <div class="box-body">
-                @if($data->sertifikat_seminar != '')  
-                      <div class="col-md-12">
-                        <?php $view =  substr($data->sertifikat_seminar ,-4); ?>
-                            @if( $view == '.pdf' )
-                              <a href="{{ asset('images/skpi/'.$data->sertifikat_seminar) }}" target="_blank" style="font-size:20px;"><i class="fa fa-file-pdf-o"></i>File Pdf</a>
-                            @elseif($view == '.doc')
-                              <a href="{{ asset('images/skpi/'.$data->sertifikat_seminar) }}" target="_blank"><i class="fa fa-file-doc-o"></i>File Doc</a>
-                            @elseif($view == '.docx')
-                              <a href="{{ asset('images/skpi/'.$data->sertifikat_seminar) }}" target="_blank"><i class="fa fa-file-doc-o"></i>File Docx</a>
-                            @else
-                            <a target="_blank" href="{{ asset('images/skpi/'.$data->sertifikat_seminar) }}"><img src="{{ asset('images/skpi/'.$data->sertifikat_seminar) }}" alt="Foto Pendukung" class="img-responsive">
-                            </a>
-                            @endif
-                      </div>
-                 @endif
-        
-                        </ol>
-        
-                      </div>
-        
-                    </div></div>
-            <!--end seminar-->
-
-            <!--sertifikat bnsp-->
-            <div class="col-md-4">    
-                    <div class="box box-default">
-        
-                    <div class="box-header with-border">
-        
-                        <h3 class="box-title" style="color: black;">
-                            <i class="fa fa-file" style="color: #FFD700;"></i>
-                            Sertifikat BNSP
-                        </h3>
-                      </div>
-        
-        
-                      <div class="box-body">
-                @if($data->sertifikat_bnsp != '')  
-                      <div class="col-md-12">
-                        <?php $view =  substr($data->sertifikat_bnsp,-4); ?>
-                            @if( $view == '.pdf' )
-                              <a href="{{ asset('images/skpi/'.$data->sertifikat_bnsp) }}" target="_blank" style="font-size:20px;"><i class="fa fa-file-pdf-o"></i>File Pdf</a>
-                            @elseif($view == '.doc')
-                              <a href="{{ asset('images/skpi/'.$data->sertifikat_bnsp) }}" target="_blank"><i class="fa fa-file-doc-o"></i>File Doc</a>
-                            @elseif($view == '.docx')
-                              <a href="{{ asset('images/skpi/'.$data->sertifikat_bnsp) }}" target="_blank"><i class="fa fa-file-doc-o"></i>File Docx</a>
-                            @else
-                            <a target="_blank" href="{{ asset('images/skpi/'.$data->sertifikat_bnsp) }}"><img src="{{ asset('images/skpi/'.$data->sertifikat_bnsp) }}" alt="Foto Pendukung" class="img-responsive">
-                            </a>
-                            @endif
-                      </div>
-                 @endif
-        
-                        </ol>
-        
-                      </div>
-        
-                    </div></div>
-            <!--end bnsp-->
-        @endforeach
-        </div>
-        <!--end konten gambar-->
-    </div>        
-            
-    </section>
+          </section>
+            <br/>
 @stop
