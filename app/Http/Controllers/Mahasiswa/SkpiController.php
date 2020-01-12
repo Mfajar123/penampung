@@ -6,8 +6,7 @@ use App\skpi;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\OptionsController;
-
-
+use App\Mahasiswa as AppMahasiswa;
 
 class SkpiController extends Controller
 {
@@ -19,8 +18,9 @@ class SkpiController extends Controller
     }
 
     public function save(Request $request){
-        $mahasiswa = Auth::guard('mahasiswa')->user();
-
+        $nim= Auth::guard('mahasiswa')->user()->nim;
+        $nama= Auth::guard('mahasiswa')->user()->nama;
+    
         $this->validate($request, [
 			'sertifikat_ospek' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
             'sertifikat_seminar' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
@@ -43,17 +43,15 @@ class SkpiController extends Controller
         $file3->move($tujuan_upload,$nama_bnsp);
         
         skpi::create([
-            'nim'=>$mahasiswa->nim,
+            'nim'=> $nim,
+            'nama'=> $nama,
             'sertifikat_ospek'=> $nama_ospek,
             'sertifikat_seminar'=> $nama_seminar,
             'sertifikat_bnsp' => $nama_bnsp,
+            'status'=>'N'
         ]);
 
-	    return redirect()->back();
-    }
-    public function show(){
-        $data_skpi=skpi::all();
-
+        return redirect()->back();
         
     }
 }

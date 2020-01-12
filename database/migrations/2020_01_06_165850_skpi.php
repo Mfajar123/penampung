@@ -16,6 +16,7 @@ class Skpi extends Migration
         Schema::create('skpi', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nim');
+            $table->string('nama');
             $table->string('sertifikat_ospek');
             $table->string('sertifikat_seminar');
             $table->string('sertifikat_bnsp');

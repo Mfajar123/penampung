@@ -1045,6 +1045,8 @@ Route::group(['middleware' => 'web'], function(){
 			Route::group(['prefix' => 'skpi'], function () {
 				Route::get('/','Dosen\SkpiController@index')->name('dosen.skpi.index');
 				Route::get('/cari','Dosen\SkpiController@cari')->name('dosen.skpi.cari');	
+				Route::get('{id}/confirm','Dosen\skpiController@confirm')->name('dosen.skpi.confirm');
+
 				
 			});
 

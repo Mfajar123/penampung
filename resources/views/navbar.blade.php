@@ -175,30 +175,30 @@
             <li class="user-footer">
               <div class="pull-left">
                 @if(Request::segment(1) == 'mahasiswa')
-                  <a href="{{ route('mahasiswa.profil') }}" class="btn btn-primary btn-flat">Profile</a>
+                  <a href="{{ route('mahasiswa.profil') }}" class="btn btn-primary btn-flat" style="background-color:dodgerblue">Profile</a>
                 @elseif(Request::segment(1) == 'dosen')
-                  <a href="{{ route('dosen.profil') }}" class="btn btn-primary btn-flat">Profile</a>
+                  <a href="{{ route('dosen.profil') }}" class="btn btn-primary btn-flat" style="background-color:dodgerblue">Profile</a>
                 @elseif(Request::segment(1) == 'admin')
-                  <a href="{{ route('admin.profil') }}" class="btn btn-primary btn-flat">Profile</a>
+                  <a href="{{ route('admin.profil') }}" class="btn btn-primary btn-flat" style="background-color:dodgerblue">Profile</a>
                 @elseif(Request::segment(1) == 'admin_smk')
-                  <a href="{{ route('admin_smk.profil') }}" class="btn btn-primary btn-flat">Profile</a>
+                  <a href="{{ route('admin_smk.profil') }}" class="btn btn-primary btn-flat" style="background-color:dodgerblue">Profile</a>
                  @elseif(Request::segment(1) == 'admin_smp')
-                  <a href="{{ route('admin_smp.profil') }}" class="btn btn-primary btn-flat">Profile</a>           
+                  <a href="{{ route('admin_smp.profil') }}" class="btn btn-primary btn-flat" style="background-color:dodgerblue">Profile</a>           
                 @endif
               </div>
               <div class="pull-right">
                 @if(Request::segment(1) == 'mahasiswa')
-                  <a href="{{ route('mahasiswa.logout') }}" class="btn btn-primary btn-flat">Log out</a>
+                  <a href="{{ route('mahasiswa.logout') }}" class="btn btn-primary btn-flat" style="background-color:dodgerblue">Log out</a>
                 @elseif(Request::segment(1) == 'dosen')
-                  <a href="{{ route('dosen.logout') }}" class="btn btn-primary btn-flat">Log out</a>
+                  <a href="{{ route('dosen.logout') }}" class="btn btn-primary btn-flat" style="background-color:dodgerblue">Log out</a>
                 @elseif(Request::segment(1) == 'admin')
-                  <a href="{{ route('admin.logout') }}" class="btn btn-primary btn-flat">Log out</a>
+                  <a href="{{ route('admin.logout') }}" class="btn btn-primary btn-flat" style="background-color:dodgerblue">Log out</a>
                 @elseif(Request::segment(1) == 'admin_smk')
-                  <a href="{{ route('admin_smk.logout') }}" class="btn btn-primary btn-flat">Log out</a>
+                  <a href="{{ route('admin_smk.logout') }}" class="btn btn-primary btn-flat" style="background-color:dodgerblue">Log out</a>
                  @elseif(Request::segment(1) == 'admin_smp')
-                  <a href="{{ route('admin_smp.logout') }}" class="btn btn-primary btn-flat">Log out</a>
+                  <a href="{{ route('admin_smp.logout') }}" class="btn btn-primary btn-flat" style="background-color:dodgerblue">Log out</a>
                 @elseif(Request::segment(1) == 'wali')
-                  <a href="{{ route('wali.logout') }}" class="btn btn-primary btn-flat">Log out</a>             
+                  <a href="{{ route('wali.logout') }}" class="btn btn-primary btn-flat" style="background-color:dodgerblue">Log out</a>             
                 @endif
               </div>
             </li>

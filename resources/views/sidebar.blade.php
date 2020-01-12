@@ -199,7 +199,26 @@
         <li><a href="{{ route('mahasiswa.cetak_jadwal_ujian') }}"><i class="fa fa-calendar"></i> <span>Jadwal Ujian</span></a></li>
         <li><a href="{{ route('mahasiswa.khs') }}"><i class="fa fa-file-text-o"></i> <span>KHS</span></a></li>
         <li><a href="{{ route('mahasiswa.remedial') }}"><i class="fa fa-refresh"></i> <span>Ulang Mata Kuliah</span></a></li>
-        <li><a href="{{ route('mahasiswa.skpi')}}"><i class="fa fa-file"></i><span>Upload SKPI</span></a></li>
+        <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-file"></i> <span>SKPI</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                        <li><a href="{{ route('mahasiswa.skpi')}}"><i class="fa fa-file"></i><span>Upload SKPI</span></a></li>
+                        <?php $status = 'approved';?>
+                        @if( $status == skpi::guard('skpi')->status()->$status )
+                        <li><a href="#"><i class="fa fa-file-o"></i>Dokumen1</a></li>
+                        <li><a href="#"><i class="fa fa-file-o"></i>Dokumen2</a></li>
+                        <li><a href="#"><i class="fa fa-file-o"></i>Dokumen3</a></li>
+                        @else
+                        
+                        @endif
+                    
+                </ul>
+            </li>
         <li><a href="{{ route('mahasiswa.shared_material') }}"><i class="fa fa-file-o"></i> <span>File Materi</span></a></li>
         <li><a href="{{ route('mahasiswa.pembayaran_spp') }}"><i class="fa fa-money"></i> <span>Pembayaran SPP</span></a></li>
         <li><a href="{{ route('mahasiswa.cetak') }}"><i class="fa fa-print"></i> <span>Cetak Kartu Ujian</span></a></li>

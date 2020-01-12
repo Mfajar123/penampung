@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dosen;
 use Auth;
 use DB;
+use File;
 use App\skpi;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -16,7 +17,7 @@ class SkpiController extends Controller
 	{
 		$data_skpi = DB::table('skpi')->paginate(5);
  
-    	return view ('pages.dosen.skpi.index',['data_skpi'=>$data_skpi]);
+		return view ('pages.dosen.skpi.index',['data_skpi'=>$data_skpi]);
  
 	}
  
@@ -29,6 +30,13 @@ class SkpiController extends Controller
 		->paginate();
  
     	return view ('pages.dosen.skpi.index',['data_skpi'=>$data_skpi]);
+	}
+
+	public function confirm($id)
+	{
+		skpi::find($id)->update(['status'=>'approved']);
+
+		return redirect()->back();
 	}
 }
 ?>
