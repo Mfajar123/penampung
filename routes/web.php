@@ -951,8 +951,14 @@ Route::group(['middleware' => 'web'], function(){
 			Route::group(['prefix' => 'skpi'], function () {
 				Route::get('/', 'Mahasiswa\SkpiController@index')->name('mahasiswa.skpi');
 				Route::post('/save', 'Mahasiswa\SkpiController@save')->name('mahasiswa.skpi.simpan');
-				
 			});
+
+			Route::group(['prefix' => 'judul'], function () {
+				Route::get('/', 'Mahasiswa\JudulController@index')->name('mahasiswa.judul');
+				Route::post('/save', 'Mahasiswa\JudulController@save')->name('mahasiswa.judul.save');
+				Route::get('/cetak', 'Mahasiswa\JudulController@cetak')->name('mahasiswa.judul.cetak');
+			});
+
 		});
 	});
 
@@ -1046,8 +1052,6 @@ Route::group(['middleware' => 'web'], function(){
 				Route::get('/','Dosen\SkpiController@index')->name('dosen.skpi.index');
 				Route::get('/cari','Dosen\SkpiController@cari')->name('dosen.skpi.cari');	
 				Route::get('{id}/confirm','Dosen\skpiController@confirm')->name('dosen.skpi.confirm');
-
-				
 			});
 
 			Route::group(['prefix' => 'saran_kritik'], function () {

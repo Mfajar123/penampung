@@ -208,15 +208,10 @@
                 </a>
                 <ul class="treeview-menu">
                         <li><a href="{{ route('mahasiswa.skpi')}}"><i class="fa fa-file"></i><span>Upload SKPI</span></a></li>
-                        <?php $status = 'approved';?>
-                        @if( $status == skpi::guard('skpi')->status()->$status )
-                        <li><a href="#"><i class="fa fa-file-o"></i>Dokumen1</a></li>
-                        <li><a href="#"><i class="fa fa-file-o"></i>Dokumen2</a></li>
-                        <li><a href="#"><i class="fa fa-file-o"></i>Dokumen3</a></li>
-                        @else
-                        
-                        @endif
-                    
+                        <li><a href="{{ route('mahasiswa.judul')}}"><i class="fa fa-file-text-o"></i>Formulir Judul</a></li>
+                        <li><a href="#"><i class="fa fa-file-o"></i>Pengajuan Pembimbing</a></li>
+                        <li><a href="#"><i class="fa fa-file-text"></i>Formulir Wisuda</a></li>
+                
                 </ul>
             </li>
         <li><a href="{{ route('mahasiswa.shared_material') }}"><i class="fa fa-file-o"></i> <span>File Materi</span></a></li>
