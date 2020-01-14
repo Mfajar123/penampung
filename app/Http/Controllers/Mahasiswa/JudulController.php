@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Mahasiswa;
-use App\config;
 use DB;
 use App\formulir_judul;
 use PDF;
@@ -36,12 +35,11 @@ class JudulController extends Controller
     }
 
     public function cetak(Request $request){
-        // $data = DB::table('judul_skripsi');
- 
+
         $data = formulir_judul::all();
         $pdf = PDF::loadview('pages.mahasiswa.formulir_judul.cetak_judul',['data'=>$data]);
         return $pdf->stream();
-
+        
     }
 
 }

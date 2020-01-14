@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Mahasiswa;
+use DB;
 use Auth;
 use App\skpi;
 use Illuminate\Http\Request;

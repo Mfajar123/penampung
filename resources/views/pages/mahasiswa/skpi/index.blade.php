@@ -11,28 +11,32 @@
 		</ol>
     </section>
     <p>
+    <div class="alert alert-primary" role="sukses" id="sukses" name="sukses">
+                  </div>
+    <div class="alert alert-primary" role="gagal" id="gagal" name="gagal">
+        </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-            <form method="POST" enctype="multipart/form-data" id="upload_image_form" action="{{ route('mahasiswa.skpi.simpan') }}" >
+            <form method="POST" enctype="multipart/form-data" id="upload_image_form" onsubmit="return validasi()" action="{{ route('mahasiswa.skpi.simpan') }}" >
                 {{ csrf_field() }}   
             <section class="content">        
             <div class="<div class="input-group mb-3>  
             <div class="col-md-4">
                             <div class="form-group">
-                                <input type="file" name="sertifikat_ospek" placeholder="Choose image" id="image1">
+                                <input type="file" class="form-control" name="sertifikat_ospek" placeholder="Choose image" id="image1">
                                 <span class="text-danger">{{ $errors->first('title') }}</span>
                             </div>
                         </div>
 
             <div class="col-md-4">
                     <div class="form-group">
-                            <input type="file" name="sertifikat_seminar" placeholder="Choose image" id="image2">
+                            <input type="file" class="form-control" name="sertifikat_seminar" placeholder="Choose image" id="image2">
                             <span class="text-danger">{{ $errors->first('title') }}</span>
                     </div>
             </div>
 
             <div class="col-md-4">
                     <div class="form-group">
-                            <input type="file" name="sertifikat_bnsp" placeholder="Choose image" id="image3">
+                            <input type="file" class="form-control" name="sertifikat_bnsp" placeholder="Choose image" id="image3">
                             <span class="text-danger">{{ $errors->first('title') }}</span>
                     </div>
             </div>
@@ -93,7 +97,32 @@
     
     <!-- data skpi-->
 </div>
-    
+<script>
+        function validasi(){
+            var sertifikat_ospek = document.getElementById('image1');
+            var sertifikat_seminar = document.getElementById('image2');
+            var sertifikat_bnsp = document.getElementById('image3');
+
+            if (harusDiisi(sertifikat_ospek, "sertifikat ospek belum diisi!")) {
+                if (harusDiisi(sertifikat_seminar, "sertifikat seminar belum diisi!")) {
+                    if (harusDiisi(sertifikat_bnsp, "sertifikat bnsp belum diisi!")) {
+                        return true;
+                    };
+                };
+            };
+            return false;
+        }
+
+        function harusDiisi(att, msg){
+            if (att.value.length == 0) {
+                alert(msg);
+                att.focus();
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 
 <script type="text/javascript">
   $(document).ready(function (b) {
