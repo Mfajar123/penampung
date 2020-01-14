@@ -36,10 +36,15 @@ class JudulController extends Controller
 
     public function cetak(Request $request){
 
-        $data = formulir_judul::all();
+        // $data = formulir_judul::all();
+        // $pdf = PDF::loadview('pages.mahasiswa.formulir_judul.cetak_judul',['data'=>$data]);
+        // return $pdf->stream();
+
+        $nim= Auth::guard('mahasiswa')->user()->nim;
+        $data =formulir_judul::all()->where('nim',$nim);
+
         $pdf = PDF::loadview('pages.mahasiswa.formulir_judul.cetak_judul',['data'=>$data]);
         return $pdf->stream();
-        
     }
 
 }

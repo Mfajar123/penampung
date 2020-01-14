@@ -11,10 +11,6 @@
 		</ol>
     </section>
     <p>
-    <div class="alert alert-primary" role="sukses" id="sukses" name="sukses">
-                  </div>
-    <div class="alert alert-primary" role="gagal" id="gagal" name="gagal">
-        </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
             <form method="POST" enctype="multipart/form-data" id="upload_image_form" onsubmit="return validasi()" action="{{ route('mahasiswa.skpi.simpan') }}" >
                 {{ csrf_field() }}   

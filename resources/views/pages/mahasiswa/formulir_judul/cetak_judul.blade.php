@@ -13,13 +13,10 @@
     </style>
         <div class="row" align="center">
         <div class="col-md-4 col-xs-2"></div>
-        <div class="konten col-md-4 col-xs-8" style="padding:0px 0px; ">
-            <span><img src="{{asset('images/logo/ppi.png')}}"  alt="Logo STIE PPI" class="img-responsive"  title="Logo STIE PPI" style="width: 10%; margin: 0px;"></span>
             <div class="bisa">
                 <h4 style="color: black; text-align: center; margin-top: 5px; ">FORMULIR PENGAJUAN JUDUL</h4>
                 <p style="text-align: center; color: black; padding-top: 5px;">SKRIPSI MAHASISWA<br></p>
             </div> 
-        </div>
         <div class="col-md-4 col-xs-2"></div>
     </div><br>
 
@@ -54,11 +51,11 @@
         <tr>
             <td width=25px align="center">A.</td>
             <td><b>{{$d->judul1}}</b></td>
-        </tr>
+        </tr><br>
         <tr>
             <td width=25px align="center">B.</td>
             <td><b>{{$d->judul2}}<b></td>
-        </tr>
+        </tr><br>
             <tr>
             <td width=25px align="center">C.</td>
             <td><b>{{$d->judul3}}<b></td>
@@ -98,8 +95,10 @@
             <td>Yang Mengajukan,</td>
             </tr>
 
+        </table><br><br><br>
+        <table>
+        <tr></tr>
         </table>
-        <br><br><br><br>
         <table>
                 <tr>
                 <td width="200">________________________<br><b>NIP : </b></td>
@@ -107,7 +106,6 @@
                 <td>________________________<br><b>NIM : {{$d->nim}}</td>
                 </tr>
         </table>
-
  @endforeach
 </body>
 </html>
