@@ -12,9 +12,18 @@
     </section>
     <p>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <div class="col-md-12">
+            <div class="col-md-12">
+            @if(session('gagal'))
+            <div class="alert alert-warning" role="alert">
+                {{session('gagal')}}
+            </div><br>
+            @endif </div>
+    </div>
+
             <form method="POST" enctype="multipart/form-data" id="upload_image_form" onsubmit="return validasi()" action="{{ route('mahasiswa.skpi.simpan') }}" >
                 {{ csrf_field() }}   
-            <section class="content">        
+            <section class="content">      
             <div class="<div class="input-group mb-3>  
             <div class="col-md-4">
                             <div class="form-group">

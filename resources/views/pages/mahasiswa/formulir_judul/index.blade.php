@@ -13,7 +13,15 @@
     <p>  
     <section class="content"> 
 	<div class="col-md-12">
+	<div class="col-md-12">
+	@if(session('gagal'))
+            <div class="alert alert-danger" role="alert">
+                {{session('gagal')}}
+            </div><br>
+			@endif 
+	</div>		
 	<div class="col-md-6">
+			 
 				<form action="{{route('mahasiswa.judul.save')}}" method="POST" id="formulir">
 					{{csrf_field()}}
 						<div class="form-group">
@@ -49,7 +57,7 @@
 							<p>
 							<button type="submit" class="btn btn-primary">Submit</button>
 						</form> 
-						<a href="{{route('mahasiswa.judul.cetak')}}" class="btn btn-warning" target="_blank">CETAK</a>
+						<a href="{{route('mahasiswa.judul.cetak')}}" class="btn btn-warning" target="_blank"><i class="fa fa-print"></i></a>
 		
 						</div>
 					  

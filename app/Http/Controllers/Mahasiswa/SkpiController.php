@@ -21,7 +21,12 @@ class SkpiController extends Controller
     public function save(Request $request){
         $nim= Auth::guard('mahasiswa')->user()->nim;
         $nama= Auth::guard('mahasiswa')->user()->nama;
-    
+
+        if( skpi::where('nim', $nim)->first() != null ) { 
+            return redirect()->back()->with('gagal', 'Anda Sudah Pernah Menginput Data!!!'); 
+        }
+           
+        else{
         $this->validate($request, [
 			'sertifikat_ospek' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
             'sertifikat_seminar' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
@@ -50,7 +55,7 @@ class SkpiController extends Controller
             'sertifikat_seminar'=> $nama_seminar,
             'sertifikat_bnsp' => $nama_bnsp,
             'status'=>'N'
-        ]);
+            ]);}
 
         return redirect()->back();
         

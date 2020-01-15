@@ -22,6 +22,11 @@ class JudulController extends Controller
         $nama= Auth::guard('mahasiswa')->user()->nama;
         $prodi= Auth::guard('mahasiswa')->user()->id_prodi;
 
+        if( formulir_judul::where('nim', $nim)->first() != null ) { 
+            return redirect()->back()->with('gagal', 'Anda Sudah Pernah Menginput Data!!!'); 
+        }
+
+        else{
         DB::table('judul_skripsi')->insert([
             'nim' =>$nim,
             'nama' =>$nama,
@@ -29,7 +34,7 @@ class JudulController extends Controller
             'judul1' => $request->judul1,
             'judul2' => $request->judul2,
             'judul3' => $request->judul3,
-        ]);
+        ]);}
 
        return redirect()->back();
     }
@@ -45,6 +50,12 @@ class JudulController extends Controller
 
         $pdf = PDF::loadview('pages.mahasiswa.formulir_judul.cetak_judul',['data'=>$data]);
         return $pdf->stream();
+    }
+
+    public function edit($id)
+    {
+        $data = formulir_judul::find($id);
+        dd($data);
     }
 
 }
