@@ -27,7 +27,7 @@ class SkpiController extends Controller
  
     	$data_skpi = DB::table('skpi')
         ->where('nama','like',"%".$cari."%")
-		->paginate();
+		->paginate(5);
  
     	return view ('pages.dosen.skpi.index',['data_skpi'=>$data_skpi]);
 	}

@@ -956,7 +956,8 @@ Route::group(['middleware' => 'web'], function(){
 			Route::group(['prefix' => 'judul'], function () {
 				Route::get('/', 'Mahasiswa\JudulController@index')->name('mahasiswa.judul');
 				Route::post('/save', 'Mahasiswa\JudulController@save')->name('mahasiswa.judul.save');
-				Route::post('{id}/save', 'Mahasiswa\JudulController@save')->name('mahasiswa.judul.edit');
+				Route::get('/{id}/edit', 'Mahasiswa\JudulController@edit')->name('mahasiswa.judul.edit');
+				Route::post('/{id}/update', 'Mahasiswa\JudulController@update')->name('mahasiswa.judul.update');
 				Route::get('/cetak', 'Mahasiswa\JudulController@cetak')->name('mahasiswa.judul.cetak');
 			});
 

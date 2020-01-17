@@ -13,8 +13,9 @@ use App\Mahasiswa as AppMahasiswa;
 class JudulController extends Controller
 {
     public function index(){
-
-    return view ('pages/mahasiswa/formulir_judul/index');
+        $nim= Auth::guard('mahasiswa')->user()->nim;
+        $data = formulir_judul::all()->where('nim',$nim); 
+        return view('pages.mahasiswa.formulir_judul.index',['data'=>$data]);
     }
 
     public function save(Request $request){
@@ -41,10 +42,6 @@ class JudulController extends Controller
 
     public function cetak(Request $request){
 
-        // $data = formulir_judul::all();
-        // $pdf = PDF::loadview('pages.mahasiswa.formulir_judul.cetak_judul',['data'=>$data]);
-        // return $pdf->stream();
-
         $nim= Auth::guard('mahasiswa')->user()->nim;
         $data =formulir_judul::all()->where('nim',$nim);
 
@@ -53,10 +50,17 @@ class JudulController extends Controller
     }
 
     public function edit($id)
-    {
-        $data = formulir_judul::find($id);
-        dd($data);
+	{
+        $edit = formulir_judul::find($id);
+        return view('pages.mahasiswa.formulir_judul.edit',compact('edit'));
     }
 
+    public function update(Request $request,$id)
+    {
+        $edit = formulir_judul::find($id);
+        $edit->update($request->all());
+
+        return redirect()->route('mahasiswa.judul');
+    }
 }
 ?>

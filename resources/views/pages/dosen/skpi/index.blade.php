@@ -82,7 +82,15 @@
                             
                         </tr>
                         @endforeach</div>
-                    </table></div>     
+                    </table>
+                    <br/>
+                    Halaman : {{ $data_skpi->currentPage() }} <br/>
+                    Jumlah Data : {{ $data_skpi->total() }} <br/>
+                    Data Per Halaman : {{ $data_skpi->perPage() }} <br/>
+                   
+                   
+                    {{ $data_skpi->links() }}
+                  </div>     
                 </div></div>    
             </div>
         
