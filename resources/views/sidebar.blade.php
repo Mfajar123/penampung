@@ -206,12 +206,12 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
+
                 <ul class="treeview-menu">
                         <li><a href="{{ route('mahasiswa.skpi')}}"><i class="fa fa-file"></i><span>Upload SKPI</span></a></li>
                         <li><a href="{{ route('mahasiswa.judul')}}"><i class="fa fa-file-text-o"></i>Formulir Judul</a></li>
                         <li><a href="#"><i class="fa fa-file-o"></i>Pengajuan Pembimbing</a></li>
                         <li><a href="#"><i class="fa fa-file-text"></i>Formulir Wisuda</a></li>
-                
                 </ul>
             </li>
         <li><a href="{{ route('mahasiswa.shared_material') }}"><i class="fa fa-file-o"></i> <span>File Materi</span></a></li>

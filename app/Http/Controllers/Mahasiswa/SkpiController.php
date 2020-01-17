@@ -57,7 +57,7 @@ class SkpiController extends Controller
             'status'=>'N'
             ]);}
 
-        return redirect()->back();
+        return redirect()->back()->with('sukses','Data Berhasil Disimpan!!!');
         
     }
 }

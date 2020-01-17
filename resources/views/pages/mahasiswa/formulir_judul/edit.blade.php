@@ -1,5 +1,15 @@
 @extends ('template')
 
+@section('style')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.min.css">
+    <style>
+        .content-title {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+    </style>
+@stop
+
 @section ('main')
 
 	<section class="content-header">

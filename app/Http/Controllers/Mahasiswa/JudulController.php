@@ -60,7 +60,7 @@ class JudulController extends Controller
         $edit = formulir_judul::find($id);
         $edit->update($request->all());
 
-        return redirect()->route('mahasiswa.judul');
+        return redirect()->route('mahasiswa.judul')->with('update','Judul Berhasil Diubah');
     }
 }
 ?>

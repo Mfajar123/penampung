@@ -38,5 +38,14 @@ class SkpiController extends Controller
 
 		return redirect()->back();
 	}
+
+	public function hapus($id){
+		$gambar = skpi::where('id',$id)->first();
+		file::delete('images/skpi/'.$gambar->sertifikat_ospek);
+
+		skpi::where('id',$id)->delete();
+
+		return redirect()->back()->with('hapus','Data Berhasil Dihapus!!!');
+	}
 }
 ?>

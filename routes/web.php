@@ -1054,6 +1054,7 @@ Route::group(['middleware' => 'web'], function(){
 				Route::get('/','Dosen\SkpiController@index')->name('dosen.skpi.index');
 				Route::get('/cari','Dosen\SkpiController@cari')->name('dosen.skpi.cari');	
 				Route::get('{id}/confirm','Dosen\skpiController@confirm')->name('dosen.skpi.confirm');
+				Route::get('{id}/hapus','Dosen\SkpiController@hapus')->name('dosen.skpi.hapus');
 			});
 
 			Route::group(['prefix' => 'saran_kritik'], function () {

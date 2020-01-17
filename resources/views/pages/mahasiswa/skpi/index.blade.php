@@ -1,5 +1,6 @@
 @extends ('template')
 
+
 @section ('main')
 
 	<section class="content-header">
@@ -18,7 +19,14 @@
             <div class="alert alert-warning" role="alert">
                 {{session('gagal')}}
             </div><br>
-            @endif </div>
+            @endif
+            
+            @if(session('sukses'))
+            <div class="alert alert-success" role="alert">
+                {{session('sukses')}}
+            </div><br>
+            @endif
+        </div>
     </div>
 
             <form method="POST" enctype="multipart/form-data" id="upload_image_form" onsubmit="return validasi()" action="{{ route('mahasiswa.skpi.simpan') }}" >
