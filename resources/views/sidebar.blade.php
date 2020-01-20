@@ -209,9 +209,17 @@
 
                 <ul class="treeview-menu">
                         <li><a href="{{ route('mahasiswa.skpi')}}"><i class="fa fa-file"></i><span>Upload SKPI</span></a></li>
+                    <?php 
+                    $nim = Auth::guard('mahasiswa')->user()->nim;
+                    $skpi = App\skpi::where('nim',$nim)->first(); ?>
+                    @if(!empty($skpi) && $skpi->status == 'approved')
                         <li><a href="{{ route('mahasiswa.judul')}}"><i class="fa fa-file-text-o"></i>Formulir Judul</a></li>
-                        <li><a href="#"><i class="fa fa-file-o"></i>Pengajuan Pembimbing</a></li>
+                        <li><a href="{{ route('mahasiswa.dospem.index')}}"><i class="fa fa-file-o"></i>Pengajuan Pembimbing</a></li>
                         <li><a href="#"><i class="fa fa-file-text"></i>Formulir Wisuda</a></li>
+                    @else
+                    
+                    @endif
+
                 </ul>
             </li>
         <li><a href="{{ route('mahasiswa.shared_material') }}"><i class="fa fa-file-o"></i> <span>File Materi</span></a></li>

@@ -109,7 +109,7 @@ return [
         'mahasiswa' => [
             'driver' => 'eloquent',
             'model' => App\Mahasiswa::class,
-        ],
+        ], 
 
         'dosen' => [
             'driver' => 'eloquent',

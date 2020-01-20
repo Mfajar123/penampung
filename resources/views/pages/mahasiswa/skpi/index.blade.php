@@ -32,7 +32,7 @@
             <form method="POST" enctype="multipart/form-data" id="upload_image_form" onsubmit="return validasi()" action="{{ route('mahasiswa.skpi.simpan') }}" >
                 {{ csrf_field() }}   
             <section class="content">      
-            <div class="<div class="input-group mb-3>  
+            <div class="input-group mb-3">  
             <div class="col-md-4">
                             <div class="form-group">
                                 <input type="file" class="form-control" name="sertifikat_ospek" placeholder="Choose image" id="image1">

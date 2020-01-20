@@ -8,10 +8,15 @@
             <li class="active">Dosen SKPI</li>
         </ol><br>
 
-        <div class="col-md-12">
             @if(session('hapus'))
             <div class="alert alert-danger" role="alert">
                 {{session('hapus')}}
+            </div>
+            @endif
+
+            @if(session('approved'))
+            <div class="alert alert-success" role="alert">
+                {{session('approved')}}
             </div>
             @endif
     </section>

@@ -38,7 +38,20 @@
             </tr>
             <tr>
                 <td width=70px>Prodi</td>
-                <td>:  <b>{{$d->prodi}}<b></td>
+                @if($d->prodi == '612'){
+                <td>:  <b>Manajemen<b></td>
+                }
+                @elseif($d->prodi == '622'){
+                <td>:  <b>Akuntansi<b></td>
+                }
+                @elseif($d->prodi == '632'){
+                <td>:  <b>Ekonomi<b></td>
+                }
+                @elseif($d->prodi == '642'){
+                <td>:  <b>Matakuliah Umum<b></td>
+                }
+                @else
+                @endif
             </tr>
         </table>
         <br><br>

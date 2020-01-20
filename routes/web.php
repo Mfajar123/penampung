@@ -961,6 +961,10 @@ Route::group(['middleware' => 'web'], function(){
 				Route::get('/cetak', 'Mahasiswa\JudulController@cetak')->name('mahasiswa.judul.cetak');
 			});
 
+			Route::group(['prefix' => 'dospem'], function () {
+				Route::get('/', 'Mahasiswa\DospemController@index')->name('mahasiswa.dospem.index');
+			});
+
 		});
 	});
 

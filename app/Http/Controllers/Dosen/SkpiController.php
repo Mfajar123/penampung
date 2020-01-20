@@ -36,7 +36,7 @@ class SkpiController extends Controller
 	{
 		skpi::find($id)->update(['status'=>'approved']);
 
-		return redirect()->back();
+		return redirect()->back()->with('approved','Data Berhasil disetujui!!!');
 	}
 
 	public function hapus($id){
