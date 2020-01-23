@@ -963,6 +963,7 @@ Route::group(['middleware' => 'web'], function(){
 
 			Route::group(['prefix' => 'dospem'], function () {
 				Route::get('/', 'Mahasiswa\DospemController@index')->name('mahasiswa.dospem.index');
+				Route::post('/save', 'Mahasiswa\DospemController@save')->name('mahasiswa.dospem.save');
 			});
 
 		});

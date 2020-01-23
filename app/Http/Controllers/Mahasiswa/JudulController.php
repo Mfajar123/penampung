@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Mahasiswa;
 use DB;
-use App\formulir_judul;
+use App\skripsi;
 use PDF;
 use Auth;
 use Illuminate\Http\Request;
@@ -14,7 +14,7 @@ class JudulController extends Controller
 {
     public function index(){
         $nim= Auth::guard('mahasiswa')->user()->nim;
-        $data = formulir_judul::all()->where('nim',$nim); 
+        $data = skripsi::all()->where('nim',$nim); 
         return view('pages.mahasiswa.formulir_judul.index',['data'=>$data]);
     }
 
@@ -23,12 +23,12 @@ class JudulController extends Controller
         $nama= Auth::guard('mahasiswa')->user()->nama;
         $prodi= Auth::guard('mahasiswa')->user()->id_prodi;
 
-        if( formulir_judul::where('nim', $nim)->first() != null ) { 
+        if( skripsi::where('nim', $nim)->first() != null ) { 
             return redirect()->back()->with('gagal', 'Anda Sudah Pernah Menginput Data!!!'); 
         }
 
         else{
-        DB::table('judul_skripsi')->insert([
+        DB::table('skripsi')->insert([
             'nim' =>$nim,
             'nama' =>$nama,
             'prodi' =>$prodi,
@@ -43,7 +43,7 @@ class JudulController extends Controller
     public function cetak(Request $request){
 
         $nim= Auth::guard('mahasiswa')->user()->nim;
-        $data =formulir_judul::all()->where('nim',$nim);
+        $data =skripsi::all()->where('nim',$nim);
 
         $pdf = PDF::loadview('pages.mahasiswa.formulir_judul.cetak_judul',['data'=>$data]);
         return $pdf->stream();
@@ -51,13 +51,13 @@ class JudulController extends Controller
 
     public function edit($id)
 	{
-        $edit = formulir_judul::find($id);
+        $edit = skripsi::find($id);
         return view('pages.mahasiswa.formulir_judul.edit',compact('edit'));
     }
 
     public function update(Request $request,$id)
     {
-        $edit = formulir_judul::find($id);
+        $edit = skripsi::find($id);
         $edit->update($request->all());
 
         return redirect()->route('mahasiswa.judul')->with('update','Judul Berhasil Diubah');

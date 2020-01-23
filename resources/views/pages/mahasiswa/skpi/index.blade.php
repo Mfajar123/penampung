@@ -53,7 +53,6 @@
                             <span class="text-danger">{{ $errors->first('title') }}</span>
                     </div>
             </div>
-        </div>
 
 
 
@@ -104,7 +103,7 @@
                    
             <div class="col-md-12">
                 <button type="submit" class="btn btn-primary">Submit</button>
-            </div>    
+            </div>
     </form>
 
     

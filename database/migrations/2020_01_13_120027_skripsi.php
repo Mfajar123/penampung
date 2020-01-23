@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class JudulSkripsi extends Migration
+class Skripsi extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class JudulSkripsi extends Migration
      */
     public function up()
     {
-        Schema::create('judul_skripsi', function (Blueprint $table) {
+        Schema::create('skripsi', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nim');
             $table->string('nama');
