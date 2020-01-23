@@ -35,18 +35,8 @@
               
                 <form action="{{route('mahasiswa.dospem.save')}}" method="POST" onsubmit="return validasi()" enctype="multipart/form-data">
                 {{csrf_field()}}
-     
-                <div class="form-group col-md-6">
-                <label for="formGroupExampleInput">Judul yang disetujui</label>
-                <textarea class="form-control" required="required" name="judul_disetujui" id="judul_disetujui" rows="2" placeholder="Ketikkan Judul Yang Disetujui"></textarea>
-                <br>
-                
-                <label for="image1">Input Form Judul Yang Sudah Disetuji</label>
-                    <input type="file" class="form-control" name="scan_formulir" placeholder="Choose image" id="scan_formulir">
-                    <span class="text-danger">{{ $errors->first('title') }}</span>
-                </div>
 
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-8">
                   {!! Form::label('dosen', 'Pilih Dospem Pertama', array('class' => 'control-label')) !!}
 
                     <select name="dospem1" class="form-control" id="dospem1">
@@ -56,7 +46,7 @@
                     </select>
                   </div>
 
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-8">
                     {!! Form::label('dosen', 'Pilih Dospem Kedua', array('class' => 'control-label')) !!}
                       <select name="dospem2" class="form-control" id="dospem2">
                       @foreach ($data as $d)
@@ -64,13 +54,9 @@
                       @endforeach
                       </select>
                     </div>
-
               <br>
-              <div class="col-md-6">
-              </div>
-              <div class="col-md-6">
+              <div class="col-md-8" align="right">
                     <button type="submit" class="btn btn-primary">Save</button>
-                    <a href="{{ route('mahasiswa.dospem.index')}}" class="btn btn-warning"><i class="fa fa-refresh"></i></a>
               </div>
           </form>
             </div>
@@ -79,15 +65,13 @@
 
         <script>
           function validasi(){
-              var val1 = document.getElementById('judul_disetujui');
               var val2 = document.getElementById('dospem1');
               var val3 = document.getElementById('dospem2');
-              var val4 = document.getElementById('scan_formulir');
   
-              if (harusDiisi(val1, "Isi Judul yang Disetujui!!!")) {
-                  if (harusDiisi(val2, "Pilih Dosen Pembimbing Pertama!!!")) {
-                      if (harusDiisi(val3, "Pilih Dosen Pembimbing Kedua!!!")) {
-                          if (harusDiisi(val4, "Isi Scan Formulir Pengajuan Judul!!!")) {
+              if (harusDiisi(val2, "Pilih Dosen Pembimbing Pertama!!!")) {
+                  if (harusDiisi(val3, "Pilih Dosen Pembimbing Kedua!!!") {
+                      if (harusDiisi(val4, "Isi Scan Formulir Pengajuan Judul!!!"){
+                          {
                           return true;
                         };
                       };
@@ -106,6 +90,7 @@
               return true;
           }
       </script>
-</section>@stop
+</section>
+@stop
 
 

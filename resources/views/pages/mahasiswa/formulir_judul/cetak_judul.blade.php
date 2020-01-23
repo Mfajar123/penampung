@@ -13,7 +13,9 @@
     </style>
         <div class="row" align="center">
         <div class="col-md-4 col-xs-2"></div>
-            <div class="bisa">
+         <div class="bisa">
+                <img src="{{asset('images/logo/stie-logo.png')}}" align="center" alt="Logo STIE PPI" class="img-responsive"  title="Logo STIE PPI" style="width: 10%; margin: 0px; margin-left: 20px; " class="img-responsive"> 
+                <p>
                 <h4 style="color: black; text-align: center; margin-top: 5px; ">FORMULIR PENGAJUAN JUDUL</h4>
                 <p style="text-align: center; color: black; padding-top: 5px;">SKRIPSI MAHASISWA<br></p>
             </div> 
@@ -78,20 +80,22 @@
         <table>
                 <tr>
                         <td width=180px>Topik/Judul Terpilih adalah</td>
-                        <td> : </td>
-                        <td align="top"><b>A / B / C </b></td>
+                        <td width="10"> : </td>
+                        <td>{{$d->judul_disetujui}}.</td>
                 </tr>
         </table><br>
         <table>
                     <tr>
                         <td width=70px>Penulisan terhitung mulai tanggal </td>
-                        <td>: _____________________________________________</td>
+                        <td width="10">:</td>
+                        <td>{{$d->tgl_mulai_bimbingan}}</td>
                 </tr>
         </table><br>
         <table>
                     <tr>
                         <td width=70px>Skripsi diharapkan selesai tanggal</td>
-                        <td>: _____________________________________________</td>
+                        <td width="10">:</td>
+                        <td>{{$d->tgl_selesai_bimbingan}}</td>
                     </tr>
         </table>
         <br><br>
@@ -114,9 +118,9 @@
         </table>
         <table>
                 <tr>
-                <td width="200">________________________<br><b>NIP : </b></td>
+                <td width="200">_____________________________<br><b>NIP : </b></td>
                 <td width="175"></td>
-                <td>________________________<br><b>NIM : {{$d->nim}}</td>
+                <td>_____________________________<br><b>NIM : {{$d->nim}}</td>
                 </tr>
         </table>
  @endforeach

@@ -252,7 +252,21 @@
                 <li class="{{ (Request::segment(2) == 'nilai' && Request::segment(3) != 'persentase') ? 'active' : '' }}"><a href="{{ route('dosen.nilai.index') }}"><i class="fa fa-edit"></i> <span>Nilai Mahasiswa</span></a></li>
             </ul>
             <li><a href="{{ route('dosen.kuesioner.nilai.index') }}"><i class="fa fa-pie-chart"></i> <span>Nilai Kuesioner</span></a></li>
-            <li><a href="{{ route('dosen.skpi.index') }}"><i class="fa fa-file"></i> <span>Konfirm SKPI</span></a></li>
+
+            <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-file"></i> <span>SKPI</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+    
+                    <ul class="treeview-menu">
+                            <li><a href="{{route('dosen.skpi.index')}}"><i class="fa fa-file"></i><span>Approve SKPI</span></a></li>
+                            <li><a href="{{route('dosen.skripsi.index')}}"><i class="fa fa-file-text-o"></i>Approve Judul Skripsi</a></li>
+                    </ul>
+                </li>
+
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-comments-o"></i> <span>Saran dan Kritik</span>

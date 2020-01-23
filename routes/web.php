@@ -1062,6 +1062,14 @@ Route::group(['middleware' => 'web'], function(){
 				Route::get('{id}/hapus','Dosen\SkpiController@hapus')->name('dosen.skpi.hapus');
 			});
 
+			Route::group(['prefix' => 'skripsi'], function() {
+				Route::get('/','Dosen\SkripsiController@index')->name('dosen.skripsi.index');
+				Route::get('/cari','Dosen\SkripsiController@cari')->name('dosen.skripsi.cari');	
+				Route::get('/{id}/edit', 'Dosen\SkripsiController@edit')->name('mahasiswa.skripsi.edit');	
+				Route::post('/{id}/update', 'Dosen\SkripsiController@update')->name('mahasiswa.skripsi.update');
+
+			});
+
 			Route::group(['prefix' => 'saran_kritik'], function () {
 				Route::group(['prefix' => 'materi_proses_pembelajaran'], function () {
 					Route::get('/', 'Dosen\SaranKritikController@materi_proses_pembelajaran')->name('dosen.evaluasi.saran_kritik.materi_proses_pembelajaran');
