@@ -12,23 +12,16 @@
     </section>
 	
 <section class="content"> 
-        <div class="box box-default">
-        <div class="box-header with-border">
-    
-        </div>
         <div class="box-body">
-            <div class="col-md-12">
-
-        <p>Cari Data Skpi :</p>
         <div class="box box-default">
                 <div class="box-header with-border">
-                    <h4 class="box-title">Form Skpi</h4>
+                    <h4 class="box-title">Cari Data Berdasarkan Nama</h4>
                 </div><br>
 <div class="container">            
         <div class="box-primary with-border">
         </div>
         <form action="{{route('dosen.skripsi.cari')}}" method="GET">
-            <input type="text" name="cari" placeholder="Cari Skpi .." value="{{ old('cari') }}">
+            <input type="text" name="cari" placeholder="Cari Nama .." value="{{ old('cari') }}">
             <input type="submit" value="CARI">
         </form>
         <br><p>

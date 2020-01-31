@@ -38,7 +38,7 @@
       <ul class="nav navbar-nav">
           <li class="pull-left">
               @if(Request::segment(1) == 'mahasiswa')
-                <a href="{{ route('mahasiswa.pengumuman') }}" title="Pengumuman"><i class="fa fa-bell"></i></a>
+                <a href="{{ route('mahasiswa.pengumuman') }}" title="Pengumuman"><i class="fa fa-bell"></i><span class="label label-danger">!</span></a>
               @elseif(Request::segment(1) == 'dosen')
                 <a href="{{ route('dosen.pengumuman') }}" title="Pengumuman"><i class="fa fa-bell"></i></a>
               @elseif(Request::segment(1) == 'admin')

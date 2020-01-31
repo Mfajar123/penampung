@@ -33,7 +33,6 @@ class SkpiController extends Controller
             'sertifikat_bnsp' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
             ]);
  
-		// menyimpan data file yang diupload ke variabel $file
         $file1 = $request->file('sertifikat_ospek');
         $file2 = $request->file('sertifikat_seminar');
         $file3 = $request->file('sertifikat_bnsp');
@@ -42,7 +41,6 @@ class SkpiController extends Controller
         $nama_seminar = time()."_".$file2->getClientOriginalName();
         $nama_bnsp = time()."_".$file3->getClientOriginalName();
  
-      	// isi dengan nama folder tempat kemana file diupload
 		$tujuan_upload = 'images/skpi';
         $file1->move($tujuan_upload,$nama_ospek);
         $file2->move($tujuan_upload,$nama_seminar);

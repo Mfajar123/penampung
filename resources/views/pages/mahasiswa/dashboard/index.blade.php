@@ -28,7 +28,7 @@
                     </div>
                     <div class="icon">
                         <i class="fa fa-user"></i></div>
-                        <a href="" class="small-box-footer">More Info
+                        <a href="#" class="small-box-footer">More Info
                         <i class="fa fa-arrow-circle-right"></a></i>
                     </div></div>
             
@@ -39,7 +39,7 @@
                     </div>
                     <div class="icon">
                         <i class="fa fa-btc"></i></div>
-                        <a href="" class="small-box-footer">More Info
+                        <a href="#" class="small-box-footer">More Info
                         <i class="fa fa-arrow-circle-right"></a></i>
                     </div></div>
         
@@ -51,7 +51,7 @@
                     </div>
                     <div class="icon">
                         <i class="fa fa-calendar"></i></div>
-                        <a href="" class="small-box-footer">More Info
+                        <a href="#" class="small-box-footer">More Info
                         <i class="fa fa-arrow-circle-right"></a></i>
                     </div></div>
 
@@ -62,22 +62,23 @@
                     </div>
                     <div class="icon">
                         <i class="fa fa-info"></i></div>
-                        <a href="" class="small-box-footer">More Info
-                        <i class="fa fa-arrow-circle-right"></a></i>
+                        <a href="#" class="small-box-footer">More Info
+                        <i class="fa fa-arrow-circle-right"></i>
                     </div></div>
 
         </div>
                     
         <div class="row">
             <div class="col-md-6">
-                @include('pages.mahasiswa.dashboard.components.profile')
-                @include('pages.mahasiswa.dashboard.components.jadwal_kuliah')
-                @include('pages.mahasiswa.dashboard.components.pembayaran_spp')   
+                
+                @include('pages.mahasiswa.dashboard.components.pengumuman')
+                 
             </div>
             <div class="col-md-6">
-               
+                @include('pages.mahasiswa.dashboard.components.profile')
                 @include('pages.mahasiswa.dashboard.components.agenda')
-                @include('pages.mahasiswa.dashboard.components.pengumuman')
+                @include('pages.mahasiswa.dashboard.components.jadwal_kuliah')
+                 @include('pages.mahasiswa.dashboard.components.pembayaran_spp') 
             </div>
         </div>
     </section>

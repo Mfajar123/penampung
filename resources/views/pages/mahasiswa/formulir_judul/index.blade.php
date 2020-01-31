@@ -49,38 +49,40 @@
 									<p>
 									<button type="submit" class="btn btn-primary">Submit</button>
 									</form>
-								  </div> 
-								  <table class="table">
-										<thead>
-										  <tr>
-											<th scope="col">Judul Pertama</th>
-											<th scope="col">Judul Kedua</th>
-											<th scope="col">Judul Ketiga</th>
-											<th scope="col-2">Aksi</th>
-										  </tr>
-										</thead>
-										@foreach ($data as $d)
-										<tbody>
-										  <tr>
-											<td>{{$d->judul1}}</td>
-											<td>{{$d->judul2}}</td>
-											<td>{{$d->judul3}}</td>
-											<td><a href="{{route('mahasiswa.judul.edit',['$id'=>$d->id])}}" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-											<a href="{{route('mahasiswa.judul.cetak')}}" class="btn btn-success" target="_blank"><i class="fa fa-print"></i></a></td>
-											
-										  </tr>
-										  @endforeach
-										  <tr>
-											<th></th>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-										  </tr>
-										</tbody>
-									  </table><br>
-									</div>						
+								</div></div>
+
+			
+			<table class="table">
+				<thead>
+					<tr>
+					<th scope="col">Judul Pertama</th>
+					<th scope="col">Judul Kedua</th>
+					<th scope="col">Judul Ketiga</th>
+					<th scope="col-2">Aksi</th>
+					</tr>
+				</thead>
+				@foreach ($data as $d)
+				<tbody>
+					<tr>
+					<td>{{$d->judul1}}</td>
+					<td>{{$d->judul2}}</td>
+					<td>{{$d->judul3}}</td>
+					<td><a href="{{route('mahasiswa.judul.edit',['$id'=>$d->id])}}" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+					<a href="{{route('mahasiswa.judul.cetak')}}" class="btn btn-success" target="_blank"><i class="fa fa-print"></i></a></td>
+					
+					</tr>
+					@endforeach
+					<tr>
+					<th></th>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					</tr>
+				</tbody>
+				</table><br>
+			</div>				
 </section>@stop
 
 

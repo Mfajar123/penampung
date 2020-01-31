@@ -34,26 +34,37 @@
         </fieldset>
 
         <br><br>
-        <div class='col-sm-4'>
-                <div class="well">
-                        <div id="datetimepicker1" nama="mulai_bimbingan" class="input-append date">
-                          <input data-format="dd/MM/yyyy hh:mm:ss" type="text"></input>
-                          <span class="add-on">
-                            <i data-time-icon="icon-time" data-date-icon="icon-calendar">
-                            </i>
-                          </span>
-                        </div>
-                      </div>
-                      <script type="text/javascript">
-                        $(function() {
-                          $('#datetimepicker1').datetimepicker({
-                            language: 'pt-BR'
-                          });
-                        });
-                      </script>   
-            </div>
+        <div class="form-group">
+          <label>Perkiraan Mulai Bimbingan</label>
+          <div class="input-group date">
+           <div class="input-group-addon">
+                  <span class="glyphicon glyphicon-th"></span>
+              </div>
+              <input placeholder="masukkan tanggal awal Mulai bimbingan" type="text" class="form-control datepicker" name="mulai_bimbingan">
+          </div>
+         </div>
+         <br>
+         <div class="form-group">
+          <label>Perkiraan Selesai Bimbingan</label>
+          <div class="input-group date">
+           <div class="input-group-addon">
+                  <span class="glyphicon glyphicon-th"></span>
+              </div>
+              <input placeholder="masukkan tanggal Selesai bimbingan" type="text" class="form-control datepicker" name="selesai_bimbingan">
+          </div></div>
+         </div>
+
+        <script type="text/javascript">
+          $(function(){
+          $(".datepicker").datepicker({
+          format: 'yyyy-mm-dd',
+          autoclose: true,
+          todayHighlight: true,
+          });
+          });
+        </script>
             
             <div class="col-sm-12"><button type="submit" class="btn btn-warning">Update</button></div>
-        </form>
+      </div></form>
     </section>
     @stop

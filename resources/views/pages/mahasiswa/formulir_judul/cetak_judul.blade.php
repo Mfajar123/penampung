@@ -120,7 +120,7 @@
                 <tr>
                 <td width="200">_____________________________<br><b>NIP : </b></td>
                 <td width="175"></td>
-                <td>_____________________________<br><b>NIM : {{$d->nim}}</td>
+                <td>{{$d->nama}}<br><b>NIM : {{$d->nim}}</td>
                 </tr>
         </table>
  @endforeach

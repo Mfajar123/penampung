@@ -8,7 +8,6 @@ use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\OptionsController;
-use App\Mahasiswa as AppMahasiswa;
 
 class JudulController extends Controller
 {

@@ -1,13 +1,18 @@
 <div class="box box-primary">
         <div class="box-header with-border">
-            <h5 class="box-title"><strong>Profile Ku</strong></h5>
+            <h5 class="box-title"><strong>My Profile</strong></h5>
         </div><p>
         <table class="table">
             <tbody>   
-                <tr><div class="col-md-4">
+                <tr><div class="col-md-12">
                     <div class="image" align="center">
-                    <img src="{{ asset('images/mahasiswa/'.Auth::guard('mahasiswa')->user()->foto_profil) }}" class="user-image" style="max-height: 175px;" >
-                </div></div></tr>
+                @if(Auth::guard('mahasiswa')->user()->foto_profil == '')
+                <img src="{{ asset('images/default-avatar.png') }}" class="user-image" style="max-height: 175px; align:center;" >
+                @else
+                    <img src="{{ asset('images/mahasiswa/'.Auth::guard('mahasiswa')->user()->foto_profil) }}" class="user-image" style="max-height: 175px; align:center;" >
+                </div></div>
+                </tr>
+                @endif
 
                 <br>
 
@@ -56,7 +61,7 @@
                 <tr>
                     <td></td>
                     <td></td>
-                    <td><a href="{{ route('mahasiswa.profil') }}" class="btn btn-primary btn-flat">Setting Profile</a></td>
+                    <td align="right"><a href="{{ route('mahasiswa.profil') }}" class="btn btn-primary btn-flat">Setting Profile</a></td>
                 </tr>
             </tbody>
         </table>
