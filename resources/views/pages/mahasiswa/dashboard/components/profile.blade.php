@@ -11,10 +11,18 @@
                 @else
                     <img src="{{ asset('images/mahasiswa/'.Auth::guard('mahasiswa')->user()->foto_profil) }}" class="user-image" style="max-height: 175px; align:center;" >
                 </div></div>
+                
                 </tr>
                 @endif
 
-                <br>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
 
                 <tr>
                     <td width="20"><b>Nim</b></td>

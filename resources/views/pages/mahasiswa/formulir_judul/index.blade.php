@@ -50,8 +50,8 @@
 									<button type="submit" class="btn btn-primary">Submit</button>
 									</form>
 								</div></div>
-
-			
+			<div class="container">				
+			<div class="col-xs-12 table-responsive">
 			<table class="table">
 				<thead>
 					<tr>
@@ -81,8 +81,8 @@
 					<td></td>
 					</tr>
 				</tbody>
-				</table><br>
-			</div>				
+				</table>
+			</div><br>				
 </section>@stop
 
 

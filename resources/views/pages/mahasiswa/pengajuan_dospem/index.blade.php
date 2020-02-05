@@ -41,19 +41,19 @@
 
                     <select name="dospem1" class="form-control" id="dospem1">
                     @foreach ($data as $d)
-                      <option value="{{$d->nama}}{{ $d->gelar_belakang }}">{{$d->nama}}{{ $d->gelar_belakang }}</option>
+                      <option value="{{$d->id_dosen}}">{{$d->nama}}{{ $d->gelar_belakang }}</option>
                     @endforeach
                     </select>
                   </div>
 
-                  <div class="form-group col-md-8">
+                  {{--  <div class="form-group col-md-8">
                     {!! Form::label('dosen', 'Pilih Dospem Kedua', array('class' => 'control-label')) !!}
                       <select name="dospem2" class="form-control" id="dospem2">
                       @foreach ($data as $d)
-                        <option value="{{$d->nama}}{{ $d->gelar_belakang }}">{{$d->nama}}{{ $d->gelar_belakang }}</option>
+                        <option value="{{$d->id_dosen}}">{{$d->nama}}{{ $d->gelar_belakang }}</option>
                       @endforeach
                       </select>
-                    </div>
+                    </div>  --}}
               <br>
               <div class="col-md-8" align="right">
                     <button type="submit" class="btn btn-primary">Save</button>

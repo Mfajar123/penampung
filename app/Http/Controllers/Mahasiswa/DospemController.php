@@ -16,7 +16,15 @@ class DospemController extends Controller
     public function index(){
         $nim= Auth::guard('mahasiswa')->user()->nim;
 
-        $data = Dosen::select('nama','gelar_belakang')->get();
+        $data = DB::select("SELECT d.id_dosen, 
+                                   d.nama, 
+                                   d.gelar_belakang 
+                              FROM m_dosen d
+                         LEFT JOIN skripsi s 
+                                ON d.id_dosen = s.dospem1 
+                          group by d.id_dosen, d.nama, d.gelar_belakang 
+                            having count(1) <=10");
+
         return view('pages.mahasiswa.pengajuan_dospem.index', compact('data'));
     }
 
@@ -25,7 +33,6 @@ class DospemController extends Controller
 
         skripsi::select('nim')->where('nim',$nim)->update([
             'dospem1'=>$request->dospem1,
-            'dospem2'=>$request->dospem2,
         ]);
 
         return redirect()->back();

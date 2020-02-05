@@ -15,8 +15,14 @@ class SkripsiController extends Controller
 {
 
     public function index(){
-        $data = skripsi::all();
 
+        $dosen = Auth::guard('dosen')->user()->nip;
+       
+        $data = DB::table('skripsi')->select('skripsi.*','tbl_detail_penasihat_akademik.*')
+		->leftjoin('tbl_detail_penasihat_akademik','tbl_detail_penasihat_akademik.nim', '=', 'skripsi.nim')
+        ->where('tbl_detail_penasihat_akademik.nip','=', $dosen)
+        ->paginate(10);
+        
         return view('pages.dosen.skpi.acc_judul',['data'=>$data]);
     }
 
@@ -24,9 +30,9 @@ class SkripsiController extends Controller
 	{
 		$cari = $request->cari;
  
-    	$data = DB::table('skripsi')
+        $data = DB::table('skripsi')
         ->where('nama','like',"%".$cari."%")
-		->paginate(10);
+		->paginate(5);
  
     	return view('pages.dosen.skpi.acc_judul',['data'=>$data]);
     }

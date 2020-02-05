@@ -28,7 +28,7 @@
                     </div>
                     <div class="icon">
                         <i class="fa fa-user"></i></div>
-                        <a href="#" class="small-box-footer">More Info
+                        <a href="{{ route('mahasiswa.profil') }}" class="small-box-footer">More Info
                         <i class="fa fa-arrow-circle-right"></a></i>
                     </div></div>
             
@@ -39,7 +39,7 @@
                     </div>
                     <div class="icon">
                         <i class="fa fa-btc"></i></div>
-                        <a href="#" class="small-box-footer">More Info
+                        <a href="{{ route('mahasiswa.pembayaran_spp') }}" class="small-box-footer">More Info
                         <i class="fa fa-arrow-circle-right"></a></i>
                     </div></div>
         
@@ -51,7 +51,7 @@
                     </div>
                     <div class="icon">
                         <i class="fa fa-calendar"></i></div>
-                        <a href="#" class="small-box-footer">More Info
+                        <a href="{{ route('mahasiswa.jadwal') }}" class="small-box-footer">More Info
                         <i class="fa fa-arrow-circle-right"></a></i>
                     </div></div>
 
@@ -62,7 +62,7 @@
                     </div>
                     <div class="icon">
                         <i class="fa fa-info"></i></div>
-                        <a href="#" class="small-box-footer">More Info
+                        <a href="{{ route('mahasiswa.pengumuman') }}" class="small-box-footer">More Info
                         <i class="fa fa-arrow-circle-right"></i>
                     </div></div>
 

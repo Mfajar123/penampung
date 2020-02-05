@@ -27,15 +27,14 @@
                 <div class="box-header with-border">
                     <h4 class="box-title">Form Skpi</h4>
                 </div><br>
-<div class="container">            
-        <div class="box-primary with-border">
-        </div>
+<div class="container">
+<div class="col-xs-12 table-responsive">            
         <form action="{{route('dosen.skpi.cari')}}" method="GET">
             <input type="text" name="cari" placeholder="Cari Skpi .." value="{{ old('cari') }}">
             <input type="submit" value="CARI">
         </form>
         <br><p>
-        <table class="table">
+        <table class="table table-responsive">
             <tr>
                 <th>Nim</th>
                 <th>Nama</th>
@@ -101,7 +100,7 @@
                 
             </tr>
             @endforeach</div>
-        </table>
+        </table></div>
         <br/>
         Halaman : {{ $data_skpi->currentPage() }} <br/>
         Jumlah Data : {{ $data_skpi->total() }} <br/>

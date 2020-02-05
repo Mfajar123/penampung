@@ -1,4 +1,4 @@
-<div class="box box-primary">
+<div class="box box-warning">
     <div class="box-header with-border">
         <h5 class="box-title">Jadwal Kuliah Hari Ini</h5>
     </div>
